@@ -39,7 +39,7 @@ export default function ServicesOverview() {
   
 //card 3d rotation
   const carouselRef = useRef<HTMLDivElement | null>(null);
- const imagesRef = useRef<NodeListOf<HTMLElement> | null>(null);
+const imagesRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const progress = useRef({ value: 0 });
   const radius = 325;
@@ -83,10 +83,13 @@ export default function ServicesOverview() {
     const theta = index / images.length - progress.current.value;
     const x = -Math.sin(theta * Math.PI * 2) * radius;
     const y = Math.cos(theta * Math.PI * 2) * radius;
-
-    image.style.transform = `translate3d(${x}px, 0px, ${y}px) rotateY(${
+if(image){
+ image.style.transform = `translate3d(${x}px, 0px, ${y}px) rotateY(${
       360 * -theta
     }deg)`;
+}
+   
+
   });
     };
 
@@ -129,7 +132,9 @@ export default function ServicesOverview() {
        {services.map((service, index) => (
         <div
           key={service.title}
-          ref={(el) => (imagesRef.current[index] = el)}
+          ref={(el) => {
+      imagesRef.current[index] = el;
+    }}
           className="absolute w-[270px] h-[320px]"
           style={{
             transformOrigin: "50% 50%",
