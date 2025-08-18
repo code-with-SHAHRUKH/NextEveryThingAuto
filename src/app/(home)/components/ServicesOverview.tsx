@@ -39,13 +39,14 @@ export default function ServicesOverview() {
   
 //card 3d rotation
   const carouselRef = useRef<HTMLDivElement | null>(null);
-  const imagesRef = useRef([]);
+ const imagesRef = useRef<NodeListOf<HTMLElement> | null>(null);
+
   const progress = useRef({ value: 0 });
   const radius = 325;
 
   useEffect(() => {
     const carousel = carouselRef?.current;
-    const images = useRef<NodeListOf<HTMLElement> | null>(null);
+    const images = imagesRef.current;
 
     Observer.create({
       target: carousel,
@@ -74,12 +75,12 @@ export default function ServicesOverview() {
       },
     });
 
-const animate = () => {
-  const Images = images.current;
-  if (!Images) return; // null check zaroori hai
+    const animate = () => {
+  const images = imagesRef.current;
+  if (!images) return; // null check zaroori hai
 
-  Images.forEach((image, index) => {
-    const theta = index / Images.length - progress.current.value;
+  images.forEach((image, index) => {
+    const theta = index / images.length - progress.current.value;
     const x = -Math.sin(theta * Math.PI * 2) * radius;
     const y = Math.cos(theta * Math.PI * 2) * radius;
 
@@ -87,8 +88,7 @@ const animate = () => {
       360 * -theta
     }deg)`;
   });
-};
-
+    };
 
     gsap.ticker.add(animate);
 
