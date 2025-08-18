@@ -6,9 +6,18 @@ import { createPageUrl } from '@/utils/createPageUrl';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, Tag } from 'lucide-react';
+type Post = {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt: string;
+  publish_date: string;
+  category: string;
+  featured_image: string;
+};
 
 export default function Blog() {
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState<Post[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -16,6 +25,7 @@ export default function Blog() {
             setIsLoading(true);
             // Mock blog posts data
             const mockPosts = [
+              
                 {
                     id: 1,
                     title: "Essential Car Maintenance Tips for Long Island Drivers",
