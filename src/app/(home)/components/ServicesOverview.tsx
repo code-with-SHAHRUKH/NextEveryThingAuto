@@ -38,13 +38,13 @@ const services = [
 export default function ServicesOverview() {
   
 //card 3d rotation
-  const carouselRef = useRef();
+  const carouselRef = useRef<HTMLDivElement | null>(null);
   const imagesRef = useRef([]);
   const progress = useRef({ value: 0 });
   const radius = 325;
 
   useEffect(() => {
-    const carousel = carouselRef.current;
+    const carousel = carouselRef?.current;
     const images = imagesRef.current;
 
     Observer.create({
