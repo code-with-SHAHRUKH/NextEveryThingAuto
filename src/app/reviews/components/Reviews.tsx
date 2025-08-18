@@ -6,7 +6,7 @@ import { Star, ExternalLink } from 'lucide-react';
 import {Tilt} from "react-tilt";
 import { motion } from "framer-motion"
 import  {fadeIn}  from '@/utils/motion';
-const renderStars = (rating) => {
+const renderStars = (rating:any) => {
     return (
         <div className="flex">
             {[...Array(5)].map((_, i) => (
@@ -15,9 +15,16 @@ const renderStars = (rating) => {
         </div>
     );
 };
-
+type Review = {
+  id: number;
+  rating: number;
+  review_text: string;
+  customer_name: string;
+  review_date: string;
+};
 const LiveGoogleReviews = () => {
-    const [reviews, setReviews] = useState([]);
+    const [reviews, setReviews] = useState<Review[]>([]);
+
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -54,6 +61,7 @@ const LiveGoogleReviews = () => {
                         customer_name: "David Chen",
                         review_date: "2024-01-05"
                     },
+                    
                     {
                         id: 5,
                         rating: 5,
