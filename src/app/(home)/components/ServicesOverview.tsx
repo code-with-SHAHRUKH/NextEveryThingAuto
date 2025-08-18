@@ -45,7 +45,7 @@ export default function ServicesOverview() {
 
   useEffect(() => {
     const carousel = carouselRef?.current;
-    const images = imagesRef.current;
+    const images = useRef<NodeListOf<HTMLElement> | null>(null);
 
     Observer.create({
       target: carousel,
@@ -74,18 +74,21 @@ export default function ServicesOverview() {
       },
     });
 
-    const animate = () => {
-      images.forEach((image, index) => {
-        const theta = index / images.length - progress.current.value;
-        const x = -Math.sin(theta * Math.PI * 2) * radius;
-        const y = Math.cos(theta * Math.PI * 2) * radius;
-        image.style.transform = `translate3d(${x}px, 0px, ${y}px) rotateY(${
-          360 * -theta
-        }deg)`;
-        const c = Math.floor((index / images.length) * 360);
-        // image.style.background = `hsla(${c}, 90%, 50%, .5)`;
-      });
-    };
+const animate = () => {
+  const Images = images.current;
+  if (!Images) return; // null check zaroori hai
+
+  Images.forEach((image, index) => {
+    const theta = index / Images.length - progress.current.value;
+    const x = -Math.sin(theta * Math.PI * 2) * radius;
+    const y = Math.cos(theta * Math.PI * 2) * radius;
+
+    image.style.transform = `translate3d(${x}px, 0px, ${y}px) rotateY(${
+      360 * -theta
+    }deg)`;
+  });
+};
+
 
     gsap.ticker.add(animate);
 
