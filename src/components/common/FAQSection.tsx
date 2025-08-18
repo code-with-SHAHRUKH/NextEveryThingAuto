@@ -58,7 +58,7 @@ export default function FAQSection({ showSearch = false, title = "Frequently Ask
         );
     }, [searchTerm]);
 
-    const toggleFAQ = (index) => {
+    const toggleFAQ = (index:any) => {
         setOpenIndex(openIndex === index ? null : index);
     };
 

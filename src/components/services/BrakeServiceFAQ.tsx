@@ -32,7 +32,7 @@ const brakeServiceFAQs = [
 export default function BrakeServiceFAQ() {
     const [openIndex, setOpenIndex] = useState(null);
 
-    const toggleFAQ = (index) => {
+    const toggleFAQ = (index:any) => {
         setOpenIndex(openIndex === index ? null : index);
     };
 

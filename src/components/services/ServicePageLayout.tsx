@@ -20,8 +20,21 @@ const otherServices = [
     { name: "NY State Inspection", path: "NYStateInspection" },
     { name: "Suspension & Steering", path: "SuspensionSteering" }
 ];
-
-export default function ServicePageLayout({ title, description, imageUrl, children, serviceFAQ }) {
+import { ReactNode } from "react";
+interface ServicePageLayoutProps {
+  title: string;
+  description: string;
+  imageUrl: string;
+  children: ReactNode;
+  serviceFAQ?: any; // yaha proper type daalna hoga agar pata ho
+}
+export default function ServicePageLayout({
+  title,
+  description,
+  imageUrl,
+  children,
+  serviceFAQ,
+}: ServicePageLayoutProps) {
     return (
         <div className="bg-[var(--color-background-offset)]">
             {/* Hero Section */}
