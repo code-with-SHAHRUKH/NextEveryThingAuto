@@ -42,7 +42,7 @@ const blueglowAnimation = {
   },
   transition: {
     duration: 4.7,
-    ease: "easeInOut",
+    ease: "easeInOut"as any,
     times: [0, 0.4, 0.7, 1], // slow entry, pause, fast exit
     repeat:0,
     // repeatDelay: 2 // gap before next car
@@ -53,7 +53,7 @@ const spin = {
   animate: { rotate: [0, 200, 200, 360] },
   transition: {
     duration: 6, // same as car's total animation
-    ease: "easeInOut",
+    ease: "easeInOut"as any,
     times: [0, 0.4, 0.6, 1], // 0→0.4 spin, 0.4→0.6 pause, 0.6→1 spin again
     repeat: 0,
     // repeatDelay: 0
@@ -90,7 +90,7 @@ const spin = {
 
 <motion.div className="relative mx-auto p-2 w-[450px] max-w-[3600px]"
        {...blueglowAnimation}
-        transition={{ ...blueglowAnimation.transition, delay: 0.5 }} // more delay
+        transition={{ ...blueglowAnimation.transition, delay: 0.5}} // more delay
         >
       {/* keep the car’s aspect ratio (your image is ~1350x390) */}
       <div className=" w-full" style={{ aspectRatio: "1450/390" }}>

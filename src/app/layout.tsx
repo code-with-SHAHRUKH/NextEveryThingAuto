@@ -216,12 +216,12 @@ export default function Layout({
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
               <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer">
-                <Button className="btn-primary font-semibold px-4 xl:px-6 py-2 xl:py-3 rounded-lg text-sm xl:text-base">
+                <Button className="btn-primary hover:bg-blue-500 font-semibold px-4 xl:px-6 py-2 xl:py-3 rounded-lg text-sm xl:text-base">
                   Book Appointment
                 </Button>
               </a>
               <a href="tel:516-775-9724">
-                <Button className="btn-accent font-semibold px-4 xl:px-6 py-2 xl:py-3 rounded-lg text-sm xl:text-base flex items-center">
+                <Button className="btn-accent hover:bg-red-500 font-semibold px-4 xl:px-6 py-2 xl:py-3 rounded-lg text-sm xl:text-base flex items-center">
                   <Phone className="w-4 h-4 mr-2"/>
                   CALL NOW
                 </Button>
