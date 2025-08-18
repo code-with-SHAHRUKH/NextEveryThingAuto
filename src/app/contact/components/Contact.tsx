@@ -19,16 +19,16 @@ export default function Contact() {
     });
     const [formStatus, setFormStatus] = useState({ message: '', type: '' });
 
-    const handleInputChange = (e) => {
+    const handleInputChange = (e:any) => {
         const { id, value } = e.target;
         setFormData(prev => ({ ...prev, [id]: value }));
     };
 
-    const handleSelectChange = (value) => {
+    const handleSelectChange = (value:any) => {
         setFormData(prev => ({ ...prev, service_type: value }));
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e:any) => {
         e.preventDefault();
         setFormStatus({ message: 'Sending...', type: 'info' });
         
@@ -210,7 +210,7 @@ export default function Contact() {
                                 width="100%"
                                 height="400"
                                 style={{ border: 0 }}
-                                allowFullScreen=""
+                                allowFullScreen
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
                                 title="Everything Auto Location - 980 Washington St, Franklin Square, NY"
