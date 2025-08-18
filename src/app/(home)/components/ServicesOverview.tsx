@@ -51,10 +51,14 @@ export default function ServicesOverview() {
       target: carousel,
       type: "wheel,pointer",
       onPress: () => {
+        if (carousel) {
         carousel.style.cursor = "grabbing";
+        }
       },
       onRelease: () => {
+        if (carousel) {
         carousel.style.cursor = "grab";
+        }
       },
       onChange: (self) => {
         gsap.killTweensOf(progress.current);
