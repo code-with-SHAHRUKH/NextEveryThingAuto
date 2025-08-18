@@ -310,7 +310,7 @@ export default function Layout({
                 />
               </Link>
               <p className="text-gray-400 text-sm">
-                Franklin Square's trusted family-owned auto repair shop since 2008. We are committed to providing honest, high-quality service for all makes and models.
+                Franklin Square&apos;s trusted family-owned auto repair shop since 2008. We are committed to providing honest, high-quality service for all makes and models.
               </p>
             </div>
 
