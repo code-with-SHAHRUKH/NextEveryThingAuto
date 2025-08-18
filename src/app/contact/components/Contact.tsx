@@ -165,43 +165,67 @@ export default function Contact() {
                     </div>
 
                     {/* Contact Info & Map */}
+                  
+
+                    
+                    {/* Contact Info & Map */}
                     <div className="space-y-8">
-                        <Card   style={{
-                boxShadow: 'inset 0 -3px 8px rgba(0, 0, 0, 0.08),inset 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 7px rgba(0, 0, 0, 0.11)'
-              }}>
-                            <CardContent className="p-8">
-                                <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-6">
-                                    Visit Franklin Square&apos;s Most Trusted Auto Shop
-                                </h3>
-                                <ul className="space-y-4 text-lg">
-                                    <li className="flex items-center space-x-4">
-                                        <MapPin className="w-6 h-6 text-blue-600" />
-                                        <a href="https://www.google.com/maps/place/980+Washington+St,+Franklin+Square,+NY+11010" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600">
-                                            980 Washington St, Franklin Square, NY 11010
-                                        </a>
-                                    </li>
-                                    <li className="flex items-center space-x-4">
-                                        <Phone className="w-6 h-6 text-blue-600" />
-                                        <a href="tel:516-775-9724" className="text-gray-700 hover:text-blue-600 font-semibold">
-                                            (516) 775-9724 - Call Now for Same-Day Service
-                                        </a>
-                                    </li>
-                                    <li className="flex items-center space-x-4">
-                                        <Mail className="w-6 h-6 text-blue-600" />
-                                        <a href="mailto:everythingautonewyork@gmail.com" className="text-gray-700 hover:text-blue-600">
-                                            everythingautonewyork@gmail.com
-                                        </a>
-                                    </li>
-                                    <li className="flex items-center space-x-4">
-                                        <Clock className="w-6 h-6 text-blue-600" />
-                                        <div>
-                                            <div className="font-semibold text-gray-700">Monday - Saturday: 8:00 AM - 6:00 PM</div>
-                                            <div className="text-gray-600">Sunday: Closed</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </CardContent>
-                        </Card>
+                      <Card
+  style={{
+    boxShadow:
+      "inset 0 -3px 8px rgba(0, 0, 0, 0.08), inset 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 7px rgba(0, 0, 0, 0.11)",
+  }}
+>
+  <CardContent className="p-4 sm:p-6 lg:p-8">
+    <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-4 sm:mb-6">
+      Visit Franklin Square&apos;s Most Trusted Auto Shop
+    </h3>
+    <ul className="space-y-3 sm:space-y-4 text-base sm:text-lg">
+      <li className="flex items-start sm:items-center space-x-3 sm:space-x-4">
+        <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0" />
+        <a
+          href="https://www.google.com/maps/place/980+Washington+St,+Franklin+Square,+NY+11010"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-700 hover:text-blue-600 break-words"
+        >
+          980 Washington St, Franklin Square, NY 11010
+        </a>
+      </li>
+
+      <li className="flex items-start sm:items-center space-x-3 sm:space-x-4">
+        <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0" />
+        <a
+          href="tel:516-775-9724"
+          className="text-gray-700 hover:text-blue-600 font-semibold break-words"
+        >
+          (516) 775-9724 - Call Now for Same-Day Service
+        </a>
+      </li>
+
+      <li className="flex items-start sm:items-center space-x-3 sm:space-x-4">
+        <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0" />
+        <a
+          href="mailto:everythingautonewyork@gmail.com"
+          className="text-gray-700 hover:text-blue-600 break-words"
+        >
+          everythingautonewyork@gmail.com
+        </a>
+      </li>
+
+      <li className="flex items-start sm:items-center space-x-3 sm:space-x-4">
+        <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 flex-shrink-0" />
+        <div>
+          <div className="font-semibold text-gray-700">
+            Monday - Saturday: 8:00 AM - 6:00 PM
+          </div>
+          <div className="text-gray-600">Sunday: Closed</div>
+        </div>
+      </li>
+    </ul>
+  </CardContent>
+</Card>
+
                         
                         {/* Google Map */}
                         <div className="luxury-shadow rounded-lg overflow-hidden">
@@ -218,29 +242,35 @@ export default function Contact() {
                         </div>
 
                         {/* Service Areas */}
-                        <Card  style={{
-                boxShadow: 'inset 0 -3px 8px rgba(0, 0, 0, 0.08),inset 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 7px rgba(0, 0, 0, 0.11)'
-              }}>
-                            <CardContent className="p-8">
-                                <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">
-                                    Serving Long Island Communities
-                                </h3>
-                                <p className="text-[var(--text-secondary)] mb-4">
-                                    We proudly serve customers throughout Nassau County including:
-                                </p>
-                                <div className="grid grid-cols-2 gap-2 text-sm">
-                                    <span>• Franklin Square</span>
-                                    <span>• Hempstead</span>
-                                    <span>• Garden City</span>
-                                    <span>• Elmont</span>
-                                    <span>• West Hempstead</span>
-                                    <span>• Uniondale</span>
-                                    <span>• Mineola</span>
-                                    <span>• Floral Park</span>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </div>
+                        <Card
+  style={{
+    boxShadow:
+      "inset 0 -3px 8px rgba(0, 0, 0, 0.08), inset 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 7px rgba(0, 0, 0, 0.11)",
+  }}
+>
+  <CardContent className="p-4 sm:p-6 lg:p-8">
+    <h3 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] mb-3 sm:mb-4">
+      Serving Long Island Communities
+    </h3>
+
+    <p className="text-sm sm:text-base text-[var(--text-secondary)] mb-3 sm:mb-4">
+      We proudly serve customers throughout Nassau County including:
+    </p>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm sm:text-base">
+      <span>• Franklin Square</span>
+      <span>• Hempstead</span>
+      <span>• Garden City</span>
+      <span>• Elmont</span>
+      <span>• West Hempstead</span>
+      <span>• Uniondale</span>
+      <span>• Mineola</span>
+      <span>• Floral Park</span>
+    </div>
+  </CardContent>
+</Card>
+
+                                            </div>
                 </div>
             </div>
         </div>
