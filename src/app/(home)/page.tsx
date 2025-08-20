@@ -28,7 +28,7 @@ export default async function Home() {
         boxShadow:
           "inset 0 -2px 5px rgba(249, 195, 195, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.61), 0 8px 14px rgba(0, 0, 0, 0.22)",
       }}
-              size="lg" className="bg-gradient-to-b from-red-600 to-gray-100/10 rounded-lg font-semibold text-lg px-8 py-4 transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              size="lg" className="bg-gradient-to-b from-red-600 to-gray-100/10 rounded-lg font-semibold text-xl px-8 py-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
                 <Phone className="w-5 h-5 mr-2" />
                 CALL NOW: 516-775-9724
               </Button>
