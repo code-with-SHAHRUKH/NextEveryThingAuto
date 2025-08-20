@@ -144,7 +144,7 @@ useEffect(() => {
         imagesRef.current[index] = el;
       }}
       className="
-    mt-8
+    mt-12
       mb-0
       md:mb-8
       sm:mb-6
@@ -227,12 +227,12 @@ useEffect(() => {
 </div> */}
 
 
-        <div className="text-center fade-in-scale mt-8">
+        <div className="text-center fade-in-scale mt-14">
           <Link href={createPageUrl("Services")} aria-label="View all auto repair services">
             <Button 
                                               style={{
         boxShadow:
-          "inset 0 -2px 5px rgba(138, 193, 252, 0.33), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 8px 14px rgba(0, 0, 0, 0.25)",
+          "inset 0 -2px 5px rgba(165, 208, 255, 0.61), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 8px 14px rgba(0, 0, 0, 0.25)",
       }}
             size="lg" className="bg-gradient-to-b from-blue-700 to-gray-100/10 rounded-lg font-semibold text-lg px-6 py-4 transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
                <Wrench className="w-5 h-5 mr-2" />

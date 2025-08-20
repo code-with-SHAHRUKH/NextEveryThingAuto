@@ -27,7 +27,7 @@ export default function HeroSection() {
             <Button
               style={{
                 boxShadow:
-                  "inset 0 -2px 5px rgba(249, 195, 195, 0.42), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+                  "inset 0 -2px 5px rgba(249, 195, 195, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
               }}
               size="lg" className="bg-gradient-to-b from-red-600 to-gray-100/10 rounded-lg font-semibold text-xl px-8 py-6 w-full flex items-center justify-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
               <Phone className="w-5 h-5 mr-2" />
@@ -38,7 +38,7 @@ export default function HeroSection() {
             <Button
               style={{
                 boxShadow:
-                  "inset 0 -2px 5px rgba(138, 193, 252, 0.33), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+                  "inset 0 -2px 5px rgba(138, 193, 252, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
               }}
               size="lg" className="bg-gradient-to-b from-blue-700 to-gray-100/10 rounded-lg font-semibold text-xl px-8 py-6 w-full sm:w-auto transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
               <Calendar className="w-5 h-5 mr-2" />
