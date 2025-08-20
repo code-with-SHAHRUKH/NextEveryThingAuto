@@ -10,7 +10,7 @@ export default function HeroSection() {
   return (
     <section className="relative h-[85vh] text-white flex items-end justify-center text-center">
       <div className="absolute inset-0 overflow-hidden bg-black">
-        <iframe 
+        <iframe
           src={videoUrl}
           frameBorder="0"
           allow="autoplay; encrypted-media"
@@ -20,33 +20,43 @@ export default function HeroSection() {
         ></iframe>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
       </div>
-      
+
       <div className="relative max-w-4xl mx-auto px-4 z-20 pb-20">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-              <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="btn-primary hover:bg-blue-500 font-semibold text-lg px-8 py-4 w-full sm:w-auto">
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Book Appointment
-                </Button>
-              </a>
-               <a href="tel:516-775-9724" className="w-full sm:w-auto">
-                <Button size="lg" className="btn-accent hover:bg-red-500 font-semibold text-lg px-8 py-4 w-full flex items-center justify-center">
-                  <Phone className="w-5 h-5 mr-2" />
-                  CALL NOW: 516-775-9724
-                </Button>
-              </a>
-            </div>
-          <div>
-            <p className="text-lg font-semibold text-blue-300 uppercase tracking-widest">
-              Trusted Auto Care in Franklin Square
-            </p>
-            <h1 className="text-4xl md:text-6xl text-gray-50 font-semibold tracking-tight my-4 text-shadow-lg animate-fade-loop">
-              Honest, Quality Auto Repair
-            </h1>
-            <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              Your family-owned shop with 17+ years of experience. We service all makes and models with a commitment to excellence and transparent pricing.
-            </p>
-          </div>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          <a href="tel:516-775-9724" className="w-full sm:w-auto">
+            <Button
+              style={{
+                boxShadow:
+                  "inset 0 -2px 5px rgba(249, 195, 195, 0.42), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+              }}
+              size="lg" className="bg-gradient-to-b from-red-600 to-gray-100/10 rounded-lg font-semibold text-xl px-8 py-6 w-full flex items-center justify-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <Phone className="w-5 h-5 mr-2" />
+              CALL NOW: 516-775-9724
+            </Button>
+          </a>
+          <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer">
+            <Button
+              style={{
+                boxShadow:
+                  "inset 0 -2px 5px rgba(138, 193, 252, 0.33), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+              }}
+              size="lg" className="bg-gradient-to-b from-blue-700 to-gray-100/10 rounded-lg font-semibold text-xl px-8 py-6 w-full sm:w-auto transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+              <Calendar className="w-5 h-5 mr-2" />
+              Book Appointment
+            </Button>
+          </a>
+        </div>
+        <div>
+          <p className="text-xl font-semibold text-blue-300 uppercase tracking-widest">
+            Trusted Auto Care in Franklin Square
+          </p>
+          <h1 className="text-4xl md:text-6xl text-gray-50 font-semibold tracking-tight my-4 text-shadow-lg animate-fade-loop">
+            Honest, Quality Auto Repair
+          </h1>
+          <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+            Your family-owned shop with 17+ years of experience. We service all makes and models with a commitment to excellence and transparent pricing.
+          </p>
+        </div>
       </div>
     </section>
   );

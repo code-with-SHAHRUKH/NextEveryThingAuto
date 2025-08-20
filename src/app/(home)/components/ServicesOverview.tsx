@@ -13,13 +13,17 @@ import {
   LifeBuoy,
   Cog, 
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  PenTool,
+  TowerControlIcon,
+  Server
 } from "lucide-react";
 
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { Observer } from "gsap/Observer";
+
 
 gsap.registerPlugin(Observer);
 
@@ -110,8 +114,8 @@ useEffect(() => {
   };
 }, [radius]); // radius dependency
   return (
-    <section className="section-padding section-bg">
-      <div className="max-w-screen-xl mx-auto px-4">
+    <section className="section-padding section-bg bg-[radial-gradient(circle_at_center,theme(colors.gray.300),theme(colors.white))] shadow-[0_8px_40px_rgba(0,0,0,0.95)]">
+      <div className="max-w-screen-xl mx-auto px-4 ">
         <div className="text-center mb-0 slide-in-up">
           <p className="text-lg font-semibold text-[var(--color-primary)] uppercase tracking-wider">Our Expertise</p>
           <h2 className="text-4xl lg:text-5xl font-bold text-black mt-2 mb-4">
@@ -124,13 +128,13 @@ useEffect(() => {
 
 <div
   ref={carouselRef}
-  className="carousel mt-0 flex justify-center items-center relative cursor-grab select-none"
+  className="carousel flex justify-center items-center relative cursor-grab select-none"
   style={{
     width: "100%",
-    height: "75vh",
+    height: "70vh",
     transform: "rotateX(-20deg) translateY(-70px)",
     transformStyle: "preserve-3d",
-    perspective: "1000px",
+    perspective: "1200px",
   }}
 >
   {services.map((service, index) => (
@@ -140,10 +144,15 @@ useEffect(() => {
         imagesRef.current[index] = el;
       }}
       className="
+    mt-8
+      mb-0
+      md:mb-8
+      sm:mb-6
+     
         absolute 
-        w-[110px] h-[305px]     /* mobile */
+        w-[110px] h-[230px]     /* mobile */
         sm:w-[220px] sm:h-[260px]  /* tablet */
-        md:w-[270px] md:h-[320px]  /* laptop/desktop */
+        md:w-[270px] md:h-[200px]  /* laptop/desktop */
       "
       style={{ transformOrigin: "50% 50%" }}
     >
@@ -152,7 +161,7 @@ useEffect(() => {
         className="block group"
         aria-label={`Learn more about ${service.title}`}
       >
-        <article className="bg-white p-4 rounded-md h-full border border-gray-200 shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col items-center text-center">
+        <article className="bg-gradient-to-b from-white to-gray-50 p-4 rounded-md h-full border border-gray-200 shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col items-center text-center">
           <div className="mb-3">
             <img
               src={service.icon}
@@ -220,7 +229,13 @@ useEffect(() => {
 
         <div className="text-center fade-in-scale mt-8">
           <Link href={createPageUrl("Services")} aria-label="View all auto repair services">
-            <Button size="lg" className="btn-primary hover:bg-blue-600 font-semibold text-lg px-10 py-4 luxury-shadow">
+            <Button 
+                                              style={{
+        boxShadow:
+          "inset 0 -2px 5px rgba(138, 193, 252, 0.33), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 8px 14px rgba(0, 0, 0, 0.25)",
+      }}
+            size="lg" className="bg-gradient-to-b from-blue-700 to-gray-100/10 rounded-lg font-semibold text-lg px-6 py-4 transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+               <Wrench className="w-5 h-5 mr-2" />
               View All Our Services
             </Button>
           </Link>

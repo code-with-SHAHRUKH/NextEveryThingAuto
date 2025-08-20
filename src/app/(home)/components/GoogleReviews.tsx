@@ -81,7 +81,7 @@ export default function GoogleReviews() {
   {reviews.map((review) => (
     <div
       key={review.id}
-      className="relative bg-gradient-to-b from-white to-gray-50 p-8 rounded-t-lg rounded-b-2xl border border-gray-200 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+      className="relative bg-gradient-to-b from-white to-gray-50 p-3 rounded-t-lg rounded-b-2xl border border-gray-200 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
     >
       {/* Decorative Top Border Glow */}
       <style>
@@ -100,17 +100,22 @@ export default function GoogleReviews() {
     <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-t-3xl animate-gradient" />
 
       {/* Stars */}
-      <div className="flex items-center space-x-2 mb-4">
-        {renderStars(review.rating)}
-      </div>
+  <div className="bg-white shadow-sm rounded-xl p-4 mb-6 min-h-[220px]">
+  {/* Stars */}
+  <div className="flex items-center space-x-2 mb-4">
+    {renderStars(review.rating)}
+  </div>
 
-      {/* Review Text */}
-      <p className="text-gray-700 mb-6 italic leading-relaxed">
-        &quot;{review.review_text}&quot;
-      </p>
+  {/* Review Text */}
+  <p className="text-gray-700 italic leading-relaxed">
+    &quot;{review.review_text}&quot;
+  </p>
+</div>
+
+
 
       {/* Customer Info */}
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-4 pl-4 pb-2">
         <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-md">
           {review.customer_name.charAt(0)}
         </div>
@@ -133,7 +138,12 @@ export default function GoogleReviews() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Button size="lg" className="btn-accent hover:bg-red-500 font-semibold text-lg px-8 py-4">
+            <Button 
+                                       style={{
+        boxShadow:
+          "inset 0 -2px 5px rgba(249, 195, 195, 0.42), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 8px 14px rgba(0, 0, 0, 0.22)",
+      }}
+            size="lg" className="bg-gradient-to-b from-red-600 to-gray-100/10 rounded-lg font-semibold text-lg px-8 py-4 transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
               <ExternalLink className="w-5 h-5 mr-2" />
               Read More Reviews
             </Button>

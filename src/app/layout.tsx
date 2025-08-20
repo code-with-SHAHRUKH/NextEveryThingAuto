@@ -17,7 +17,8 @@ import {
   Youtube,
   Twitter,
   Menu,
-  ChevronDown
+  ChevronDown,
+  Calendar
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -63,12 +64,31 @@ const navigationItems = [
 ];
 
 const socialLinks = [
-  { name: "Facebook", icon: Facebook, url: "https://www.facebook.com/everythingautony/" },
-  { name: "Instagram", icon: Instagram, url: "https://www.instagram.com/everythingautony" },
-  { name: "Youtube", icon: Youtube, url: "https://www.youtube.com/@EverythingAutoNY" },
-  { name: "Twitter", icon: Twitter, url: "https://x.com/everythngautony" }
+  { 
+    name: "Facebook", 
+    icon: Facebook, 
+    url: "https://www.facebook.com/everythingautony/", 
+    color: "#1877F2"   // Official Facebook Blue
+  },
+  { 
+    name: "Instagram", 
+    icon: Instagram, 
+    url: "https://www.instagram.com/everythingautony", 
+    color: "linear-gradient(45deg,#F58529,#FEDA77,#DD2A7B,#8134AF,#515BD4)" // Official Instagram Gradient
+  },
+  { 
+    name: "Youtube", 
+    icon: Youtube, 
+    url: "https://www.youtube.com/@EverythingAutoNY", 
+    color: "#FF0000"   // Official YouTube Red
+  },
+  { 
+    name: "Twitter", 
+    icon: Twitter, 
+    url: "https://x.com/everythngautony", 
+    color: "#000000"   // New Twitter (X) Black
+  }
 ];
-
 const inter = Inter({ subsets: ['latin'] });
 
 // export const metadata: Metadata = {
@@ -139,40 +159,57 @@ export default function Layout({
 
 
       {/* Top Bar */}
-      <div className="bg-gray-800 text-white border-b border-gray-700 py-3 px-10 sm:px-40 md:px-10 lg:px-10 text-sm">
+      <div 
+                                       style={{
+        boxShadow:
+          "inset 0 -2px 5px rgba(138, 193, 252, 0.44), inset 0 2px 5px rgba(19, 19, 19, 0.6), 0 2px 5px rgba(0, 0, 0, 0.11)",
+      }}
+      className="bg-gradient-to-b from-blue-800 to-gray-800 text-white border-b border-gray-500 py-3 px-10 sm:px-40 md:px-10 lg:px-10 text-sm">
         <div className="max-w-screen-2xl mx-auto flex justify-between items-center gap-8">
             <div className="flex-1 flex items-center gap-x-8">
                 <a href="tel:516-775-9724" className="flex items-center space-x-2 text-white hover:text-blue-300 transition-colors font-semibold">
                   <Phone className="w-4 h-4" />
                   <span>(516) 775-9724</span>
                 </a>
-                <a href="https://www.google.com/maps/place/980+Washington+St,+Franklin+Square,+NY+11010" target="_blank" rel="noopener noreferrer" className="hidden lg:flex items-center space-x-2 text-gray-300 hover:text-white transition-colors">
+                <a href="https://www.google.com/maps/place/980+Washington+St,+Franklin+Square,+NY+11010" target="_blank" rel="noopener noreferrer" className="hidden lg:flex items-center space-x-2 text-white hover:text-blue-200 transition-colors">
                   <MapPin className="w-4 h-4" />
                   <span>980 Washington St, Franklin Square, NY 11010</span>
                 </a>
-                <a href="mailto:everythingautonewyork@gmail.com" className="hidden xl:flex items-center space-x-2 text-gray-300 hover:text-white transition-colors">
+                <a href="mailto:everythingautonewyork@gmail.com" className="hidden xl:flex items-center space-x-2 text-white hover:text-blue-200 transition-colors">
                   <Mail className="w-4 h-4" />
                   <span>everythingautonewyork@gmail.com</span>
                 </a>
             </div>
             <div className="flex items-center space-x-4">
-              {socialLinks.map(link => (
-                <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                  <link.icon className="w-5 h-5" />
-                </a>
-              ))}
+                {socialLinks.map(link => (
+    <a
+      key={link.name}
+      href={link.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-2 rounded-full transition-transform hover:scale-110"
+      style={{
+        background: link.color,
+        boxShadow:
+          "inset 0 -2px 3px rgba(255, 255, 255, 0.48), inset 0 2px 2px rgba(19, 19, 19, 0.61)",
+      }}
+    >
+      <link.icon className="w-5 h-5 text-white" />
+    </a>
+  ))}
             </div>
         </div>
       </div>
 
       {/* Main Header */}
-      <header className="bg-white/80 backdrop-blur-md border-b border-[var(--color-border)] sticky top-0 z-50">
+      <header className="bg-white/70 backdrop-blur-md border-b border-white/70 sticky top-0 z-50">
         <div className="max-w-screen-2xl mx-auto px-1 sm:px-1 lg:px-1">
-          <div className="flex items-center justify-between h-32">
+          <div className="flex items-center justify-between h-28">
             {/* Logo */}
             <Link href='/' className="flex-shrink-0 cursor-pointer">
               <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/09d6b1a90_pngglowlogo1.png"
+                // src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/09d6b1a90_pngglowlogo1.png"
+                src="/EveryThingAutoLogo.png"
                 alt="Everything Auto - Expert Auto Repair in Franklin Square, NY"
                 className="header-logo"
               />
@@ -213,17 +250,29 @@ export default function Layout({
 
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
+                  <a href="tel:516-775-9724">
+                    <Button
+                      style={{
+                        boxShadow:
+                          "inset 0 -2px 5px rgba(249, 195, 195, 0.65), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+                      }}
+                      className="bg-gradient-to-b from-red-600 to-gray-100/10 rounded-lg font-semibold px-4 xl:px-6 py-2 xl:py-3 text-sm xl:text-base flex items-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                      <Phone className="w-4 h-4 mr-1" />
+                      CALL NOW
+                    </Button>
+                  </a>
               <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer">
-                <Button className="btn-primary hover:bg-blue-500 font-semibold px-4 xl:px-6 py-2 xl:py-3 rounded-lg text-sm xl:text-base">
+                <Button 
+                     style={{
+        boxShadow:
+          "inset 0 -2px 5px rgba(138, 193, 252, 0.57), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+      }}
+                className="bg-gradient-to-b from-blue-700 to-gray-100/10 font-semibold px-4 xl:px-6 py-2 xl:py-3 rounded-lg text-sm xl:text-base transform transition-all duration-300 hover:scale-105 hover:shadow-xl ">
+                  <Calendar className="w-4 h-4 mr-1" />
                   Book Appointment
                 </Button>
               </a>
-              <a href="tel:516-775-9724">
-                <Button className="btn-accent hover:bg-red-500 font-semibold px-4 xl:px-6 py-2 xl:py-3 rounded-lg text-sm xl:text-base flex items-center">
-                  <Phone className="w-4 h-4 mr-2"/>
-                  CALL NOW
-                </Button>
-              </a>
+             
             </div>
 
             {/* Mobile Menu */}
@@ -357,11 +406,22 @@ export default function Layout({
                 <li>Sunday: Closed</li>
               </ul>
               <div className="mt-6 flex space-x-4">
-                {socialLinks.map(link => (
-                  <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-gray-700 rounded-full hover:bg-[var(--color-primary)] transition-colors">
-                    <link.icon className="w-5 h-5" />
-                  </a>
-                ))}
+                          {socialLinks.map(link => (
+    <a
+      key={link.name}
+      href={link.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-2 rounded-full transition-transform hover:scale-110"
+      style={{
+        background: link.color,
+        boxShadow:
+          "inset 0 -3px 6px rgba(255, 255, 255, 0.4), inset 0 3px 6px rgba(19, 19, 19, 0.61), 0 3px 7px rgba(0, 0, 0, 0.11)",
+      }}
+    >
+      <link.icon className="w-5 h-5 text-white" />
+    </a>
+  ))}
               </div>
             </div>
           </div>
