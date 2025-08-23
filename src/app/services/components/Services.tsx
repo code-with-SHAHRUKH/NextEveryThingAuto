@@ -33,14 +33,35 @@ const services = [
 export default function ServicesPage() {
   return (
     <div className="bg-[var(--color-background-offset)]">
-      <section className="section-padding bg-gray-800 text-white text-center">
-        <div className="max-w-5xl mx-auto px-4">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-white">Our Automotive Services</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            We offer a full range of expert auto repair and maintenance services in Franklin Square to keep your vehicle running at its best.
-          </p>
-        </div>
-      </section>
+<section
+  className=" h-[70vh] relative section-padding bg-cover bg-center bg-no-repeat text-white text-center"
+  style={{
+    backgroundImage: "url('/workshop.jpg')", // apni image ka path yahan daalo
+  }}
+>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
+  <div className="relative max-w-5xl mx-auto px-4 py-20">
+    <h1 className="text-4xl lg:text-5xl font-extrabold mb-2 text-white tracking-tight">
+      Our Automotive Services
+    </h1>
+
+    <motion.div
+      initial={{ width: 0 }}
+      animate={{ width: "35rem" }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      className="h-1 bg-gradient-to-b from-blue-800 to-gray-800 mx-auto mb-6 rounded-full"
+    />
+
+    <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+      We offer a full range of expert auto repair and maintenance services in Franklin Square
+      to keep your vehicle running at its best.
+    </p>
+  </div>
+</section>
+
+
 
       <section className="section-padding">
         <div className="max-w-7xl mx-auto px-4">
@@ -98,25 +119,36 @@ export default function ServicesPage() {
         </div>
       </section>
       
-      <section className="section-padding bg-gray-100 border-t border-gray-200">
+      <section className="section-padding bg-gradient-to-b from-blue-900 to-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-           <h2 className="text-3xl font-bold text-black mb-4">Ready for 5-Star Service?</h2>
-            <p className="text-lg text-[var(--color-text-light)] mb-8 max-w-2xl mx-auto">
+           <h2 className="text-3xl font-bold text-white mb-4">Ready for 5-Star Service?</h2>
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
               Don&apos;t wait for a small problem to become a major repair. Contact our expert team in Franklin Square today!
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="btn-primary hover:bg-blue-600 font-bold text-lg px-8 py-4">
-                      <Calendar className="w-5 h-5 mr-2" />
-                      Book an Appointment
-                  </Button>
-              </a>
-              <a href="tel:516-775-9724">
-                  <Button size="lg" className="btn-accent hover:bg-red-500 font-bold text-lg px-8 py-4">
-                      <Phone className="w-5 h-5 mr-2" />
-                      CALL NOW: (516) 775-9724
-                  </Button>
-              </a>
+        
+               <a href="tel:516-775-9724" className="w-full sm:w-auto">
+                                    <Button
+                                      style={{
+                                        boxShadow:
+                                          "inset 0 -2px 5px rgba(249, 195, 195, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+                                      }}
+                                      size="lg" className="bg-gradient-to-b from-red-600 to-gray-100/10 rounded-lg font-semibold text-xl px-8 py-6 w-full flex items-center justify-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                                      <Phone className="w-5 h-5 mr-2" />
+                                      CALL NOW: (516) 775-9724
+                                    </Button>
+                                  </a>
+                                  <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer">
+                                    <Button
+                                      style={{
+                                        boxShadow:
+                                          "inset 0 -2px 5px rgba(138, 193, 252, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+                                      }}
+                                      size="lg" className="bg-gradient-to-b from-blue-700 to-gray-100/10 rounded-lg font-semibold text-xl px-8 py-6 w-full sm:w-auto transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                                      <Calendar className="w-5 h-5 mr-2" />
+                                      Book Appointment
+                                    </Button>
+                                  </a>
             </div>
         </div>
       </section>

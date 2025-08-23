@@ -21,7 +21,8 @@ export default async function Home() {
         <GoogleReviews/>
         <section className="section-padding text-center bg-gradient-to-b from-blue-900 to-gray-900 text-white">
             <h2 className="text-3xl font-semibold mb-4 text-gray-50">Ready for 5-Star Service?</h2>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">Don&apos;t wait for a small problem to become a major repair. Contact our expert team today!</p>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">Don&apos;t wait for a small problem to become a major repair. Contact our expert team in Franklin Square today!</p>
+            
             <a href="tel:516-775-9724">
               <Button
                                                  style={{

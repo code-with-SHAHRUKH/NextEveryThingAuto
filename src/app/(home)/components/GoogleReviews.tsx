@@ -9,9 +9,12 @@ type Review = {
   id: number;
   rating: number;
   review_text: string;
+  customer_image:string;
   customer_name: string;
+  review_date:string;
 };
-
+import { motion } from "framer-motion"
+import { fadeIn } from '@/utils/motion';
 export default function GoogleReviews() {
   const [reviews, setReviews] = useState<Review[]>([]); // Typed state
 
@@ -20,26 +23,29 @@ export default function GoogleReviews() {
       // Mock featured reviews data
       const mockFeaturedReviews: Review[] = [
         {
-          id: 1,
-          rating: 5,
-          review_text:
-            "Everything Auto is the best! They fixed my transmission issues quickly and professionally. The digital inspection showed me exactly what was wrong with photos and explanations. Highly recommend!",
-          customer_name: "Sarah Johnson",
-        },
-        {
-          id: 2,
-          rating: 5,
-          review_text:
-            "I've been coming here for years. Always honest, fair prices, and exceptional work. The digital vehicle inspection is amazing - they show you pictures of everything. Best shop in Nassau County!",
-          customer_name: "Mike Rodriguez",
-        },
-        {
-          id: 3,
-          rating: 5,
-          review_text:
-            "Got my NY State Inspection done here. Fast, friendly, and efficient. The digital inspection report they provide is incredible - shows photos of every issue. Will definitely return!",
-          customer_name: "Jennifer Smith",
-        },
+                        id: 1,
+                        rating: 5,
+                        review_text: "Amazing service! Everything Auto fixed my transmission issues quickly and professionally. Highly recommend!",
+                        customer_image: '',
+                        customer_name: "Sarah Johnson",
+                        review_date: "2024-01-15"
+                    },
+                    {
+                        id: 2,
+                        rating: 5,
+                        review_text: "Best auto repair shop in Franklin Square. Honest pricing and excellent work. Will definitely return.",
+                        customer_image: '',
+                        customer_name: "Mike Rodriguez",
+                        review_date: "2024-01-10"
+                    },
+                    {
+                        id: 3,
+                        rating: 5,
+                        review_text: "Professional, reliable, and fair pricing. Everything Auto has been my go-to for years.",
+                        customer_image: '',
+                        customer_name: "Jennifer Smith",
+                        review_date: "2024-01-08"
+                    },
       ];
       setReviews(mockFeaturedReviews);
     };
@@ -78,55 +84,57 @@ export default function GoogleReviews() {
 
         {reviews.length > 0 && (
        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-  {reviews.map((review) => (
-    <div
-      key={review.id}
-      className="relative bg-gradient-to-b from-white to-gray-50 p-3 rounded-t-lg rounded-b-2xl border border-gray-200 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-    >
-      {/* Decorative Top Border Glow */}
-      <style>
-{`
-  @keyframes gradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradientFlow 1s ease infinite;
-  }
-`}
-</style>
-    <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-t-3xl animate-gradient" />
-
-      {/* Stars */}
-  <div className="bg-white shadow-sm rounded-xl p-4 mb-6 min-h-[220px]">
-  {/* Stars */}
-  <div className="flex items-center space-x-2 mb-4">
-    {renderStars(review.rating)}
-  </div>
-
-  {/* Review Text */}
-  <p className="text-gray-700 italic leading-relaxed">
-    &quot;{review.review_text}&quot;
-  </p>
-</div>
-
-
-
-      {/* Customer Info */}
-      <div className="flex items-center space-x-4 pl-4 pb-2">
-        <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-md">
-          {review.customer_name.charAt(0)}
+  {reviews.map((review,index) => (
+ <motion.div
+  key={review.id}
+  variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+>
+  <div className="flex justify-center p-0 font-sans">
+    <div className="flex flex-col max-w-sm md:max-w-md w-full">
+      
+      {/* Review Bubble Card (animated, center aligned) */}
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        transition={{ type: "spring", stiffness: 300, damping: 15 }}
+        className="relative bg-gradient-to-b from-white via-gray-100 to-gray-50 p-8 rounded-2xl shadow-md hover:shadow-2xl 
+                   border border-gray-100 mb-5 w-full transition-all duration-300"
+      >
+        {/* Star Rating */}
+        <div className="flex justify-center space-x-1 mb-3">
+          {renderStars(review.rating)}
         </div>
-        <div>
-          <h3 className="font-semibold text-lg text-gray-900">
+
+        {/* Review Text */}
+        <p className="text-center text-lg text-gray-700 leading-relaxed mb-4 italic">
+          &quot;{review.review_text}&quot;
+        </p>
+
+        {/* Bubble Tail */}
+        <div className="absolute left-8 -bottom-2 
+                        w-4 h-4 bg-gray-50 rotate-45 border-r border-b border-gray-200">
+        </div>
+      </motion.div>
+
+      {/* User Info Section (LEFT aligned, connected look) */}
+      <div className="flex items-center space-x-3 ml-2 px-1">
+        <img
+          src={review?.customer_image || "/mypic.png"}
+          alt={review.customer_name}
+          className="w-12 h-12 rounded-full object-cover border border-gray-300 shadow-sm ring-2 ring-gray-100"
+        />
+        <div className="flex flex-col text-left">
+          <span className="text-lg font-semibold text-gray-800">
             {review.customer_name}
-          </h3>
-          <p className="text-sm text-gray-500">Google Review</p>
+          </span>
+          <span className="text-sm text-gray-500">
+            {new Date(review.review_date).toLocaleDateString()}
+          </span>
         </div>
       </div>
     </div>
+  </div>
+</motion.div>
+
   ))}
 </div>
 

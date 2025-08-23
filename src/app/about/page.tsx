@@ -254,29 +254,37 @@ const spin = {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding section-bg">
-        <div className="max-w-4xl mx-auto px-4 text-center bg-white p-12 rounded-2xl shadow-lg border border-gray-200"
-        style={{
-                boxShadow: 'inset 0 -3px 8px rgba(0, 0, 0, 0.08),inset 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 7px rgba(0, 0, 0, 0.11)'
-              }}
+      <section className="section-padding bg-gradient-to-b from-blue-900 to-gray-900 text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center rounded-2xl "
+      
         >
-          <h2 className="text-3xl font-bold text-black mb-4">Ready to Experience the Difference?</h2>
-          <p className="text-lg text-[var(--color-text-light)] mb-8">
+          <h2 className="text-3xl font-bold mb-4 text-white">Ready to Experience the Difference?</h2>
+          <p className="text-lg mx-auto mb-8 max-w-2xl text-gray-200">
             Join the thousands of satisfied customers who trust Everything Auto for all their vehicle needs.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" className="btn-primary hover:bg-blue-600 font-semi-bold hover:font-bold text-lg px-8 py-4">
-                <Calendar className="w-5 h-5 mr-2" />
-                Schedule an Appointment
-              </Button>
-            </a>
-            <a href="tel:516-775-9724">
-              <Button size="lg" className="btn-accent hover:bg-red-500 font-semibold hover:font-bold text-lg px-8 py-4">
-                <Phone className="w-5 h-5 mr-2" />
-                CALL NOW
-              </Button>
-            </a>
+             <a href="tel:516-775-9724" className="w-full sm:w-auto">
+                      <Button
+                        style={{
+                          boxShadow:
+                            "inset 0 -2px 5px rgba(249, 195, 195, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+                        }}
+                        size="lg" className="bg-gradient-to-b from-red-600 to-gray-100/10 rounded-lg font-semibold text-xl px-8 py-6 w-full flex items-center justify-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                        <Phone className="w-5 h-5 mr-2" />
+                        CALL NOW
+                      </Button>
+                    </a>
+                    <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer">
+                      <Button
+                        style={{
+                          boxShadow:
+                            "inset 0 -2px 5px rgba(138, 193, 252, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+                        }}
+                        size="lg" className="bg-gradient-to-b from-blue-700 to-gray-100/10 rounded-lg font-semibold text-xl px-8 py-6 w-full sm:w-auto transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                        <Calendar className="w-5 h-5 mr-2" />
+                        Book Appointment
+                      </Button>
+                    </a>
           </div>
         </div>
       </section>

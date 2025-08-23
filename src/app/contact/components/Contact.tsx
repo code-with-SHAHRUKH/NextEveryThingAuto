@@ -42,16 +42,14 @@ export default function Contact() {
     return (
         <div className="bg-[var(--bg-light)]">
             {/* SEO Hero Section */}
-            <section className="py-20 bg-gradient-to-br from-[var(--primary-navy)] to-gray-900 text-white">
+            <section className="py-20 bg-gray-800 text-white text-white">
                 <div className="max-w-7xl mx-auto px-4 text-center">
-                    <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+                    <h1 className="text-4xl lg:text-6xl text-white font-bold mb-6">
                         Contact Everything Auto - Franklin Square&apos;s Premier Auto Repair Shop
                     </h1>
-                    <p className="text-xl text-gray-500 max-w-3xl mx-auto leading-relaxed">
-                        Get in touch with Franklin Square&apos;s most trusted auto repair experts. With 17+ years of experience 
-                        and over 5,000 satisfied customers since 2008, we&apos;re here to keep your vehicle running smoothly. 
-                        Located at 980 Washington St, we serve Franklin Square, Hempstead, Garden City, and all of Nassau County.
-                    </p>
+                   <p className="text-xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
+    Get in touch with Franklin Square&apos;s most trusted auto repair experts. With <span className="font-bold text-white">17+ years</span> of experience and over <span className="font-bold text-white">5,000</span> satisfied customers since <span className="font-bold text-white">2008</span>, we&apos;re here to keep your vehicle running smoothly. Located at <span className="font-bold text-white">980 Washington St</span>, we serve Franklin Square, Hempstead, Garden City, and all of Nassau County.
+</p>
                 </div>
             </section>
 
@@ -150,7 +148,12 @@ export default function Contact() {
                                 required 
                                 className="text-lg"
                             />
-                            <Button type="submit" size="lg" className="w-full btn-primary font-bold text-lg py-4">
+                            <Button 
+                                 style={{
+        boxShadow:
+          "inset 0 -2px 5px rgba(138, 193, 252, 0.57), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+      }}
+                            type="submit" size="lg" className="w-full bg-gradient-to-b from-blue-700 to-gray-100/10 rounded-lg font-semibold text-lg px-6 py-4 transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
                                 Get Your Free Estimate Today
                             </Button>
                             {formStatus.message && (

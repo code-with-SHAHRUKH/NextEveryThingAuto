@@ -18,7 +18,7 @@ export default function HeroSection() {
           title="Everything Auto Background Video"
           className="absolute top-1/2 left-1/2 w-full h-full min-w-[100vh] min-h-[100vh] object-cover fit-content transform -translate-x-1/2 -translate-y-1/2 z-0 opacity-40"
         ></iframe>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 shadow-[0_-10px_20px_rgba(0,0,0,0.9)]"></div>
       </div>
 
       <div className="relative max-w-4xl mx-auto px-4 z-20 pb-20">

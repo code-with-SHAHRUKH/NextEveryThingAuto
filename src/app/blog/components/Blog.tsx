@@ -5,7 +5,8 @@ import { createPageUrl } from '@/utils/createPageUrl';
 
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Calendar, Tag } from 'lucide-react';
+import { ArrowRight, Calendar, ExternalLink, Tag } from 'lucide-react';
+import { motion } from "framer-motion"
 type Post = {
   id: number;
   title: string;
@@ -87,11 +88,26 @@ export default function Blog() {
         fetchPosts();
     }, []);
 
+ const [postsToShow, setPostsToShow] = useState(5);
+
+    const handleLoadMore = () => {
+        setPostsToShow(prevCount => prevCount + 5); // Add 5 more posts
+    };
+
+    const hasMorePosts = postsToShow < posts.length;
+
     return (
         <div>
             <div className="py-24 bg-gray-800 text-white">
                 <div className="max-w-screen-xl mx-auto px-4 text-center">
                     <h1 className="text-5xl font-bold text-white">Our Auto Care Blog</h1>
+{/*                     
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: "28rem" }}
+                          transition={{ duration: 1, ease: "easeOut" }}
+                          className="h-1 bg-gradient-to-b from-blue-800 to-gray-800 mx-auto mt-2 rounded-full"
+                        /> */}
                      <p className="text-xl text-gray-200 max-w-3xl mx-auto mt-4">
                         Expert tips, advice, and news from the technicians at Everything Auto.
                     </p>
@@ -99,9 +115,9 @@ export default function Blog() {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 py-16">
-                <div className="grid lg:grid-cols-3 gap-5">
+                <div className="grid lg:grid-cols-5 gap-3">
                     {isLoading ? (
-                        Array.from({ length: 3 }).map((_, index) => (
+                        Array.from({ length: 5 }).map((_, index) => (
                             <Card key={index} className="animate-pulse">
                                 <div className="h-48 bg-gray-200 rounded-t-lg"></div>
                                 <CardContent className="p-6 space-y-4">
@@ -113,8 +129,8 @@ export default function Blog() {
                             </Card>
                         ))
                     ) : (
-                        posts.map(post => (
-                      <Card
+                         posts.slice(0, postsToShow).map(post => (
+<Card
   key={post.id}
   className="overflow-hidden group transition-shadow duration-300 shadow-md hover:shadow-lg flex flex-col bg-white"
 >
@@ -126,42 +142,50 @@ export default function Blog() {
     />
   </Link>
 
-  <CardContent className="p-6 flex flex-col flex-grow">
+  <CardContent className="p-4 flex flex-col flex-grow">
     {/* Date & Category */}
-    <div className="flex items-center flex-wrap gap-4 text-sm text-gray-500 mb-3">
-      <div className="flex items-center space-x-1">
-        <Calendar className="w-4 h-4" />
-        <span>{new Date(post.publish_date).toLocaleDateString()}</span>
-      </div>
-      <div className="flex items-center space-x-1">
-        <Tag className="w-4 h-4" />
-        <span className="capitalize">{post.category.replace('-', ' ')}</span>
-      </div>
+   <div className="flex flex-col gap-1 text-sm text-gray-500 mb-3">
+  <div className="flex items-center space-x-1">
+    <Calendar className="w-4 h-4" />
+    <span>{new Date(post.publish_date).toLocaleDateString()}</span>
+  </div>
+  <div className="flex items-center space-x-1">
+    <Tag className="w-4 h-4" />
+    <span className="capitalize">{post.category.replace('-', ' ')}</span>
+  </div>
+</div>
+
+    {/* Title & Excerpt Container - Added fixed height to ensure alignment */}
+    <div className="flex-grow min-h-[120px] mb-2"> {/* Adjust this value as needed */}
+      {/* Title */}
+      <h3 className="text-xl font-bold text-[var(--dark-blue)] mb-2 line-clamp-2">
+        <Link
+          href={createPageUrl(`BlogPost?slug=${post.slug}`)}
+          className="hover:text-blue-600 transition-colors"
+        >
+          {post.title}
+        </Link>
+      </h3>
+
+      {/* Excerpt */}
+      <p className="text-gray-600 line-clamp-3 flex-grow">
+        {post.excerpt}
+      </p>
     </div>
-
-    {/* Title */}
-    <h3 className="text-xl font-bold text-[var(--dark-blue)] mb-2 line-clamp-2">
-      <Link
-        href={createPageUrl(`BlogPost?slug=${post.slug}`)}
-        className="hover:text-blue-600 transition-colors"
-      >
-        {post.title}
-      </Link>
-    </h3>
-
-    {/* Excerpt */}
-    <p className="text-gray-600 line-clamp-3 mb-4 flex-grow">
-      {post.excerpt}
-    </p>
 
     {/* Read More Button Fixed at Bottom */}
     <div className="mt-auto">
       <Link href={createPageUrl(`BlogPost?slug=${post.slug}`)}>
         <Button
-          variant="link"
-          className="p-0 text-blue-600 font-semibold group-hover:underline"
+         
+                      style={{
+        boxShadow:
+          "inset 0 -2px 5px rgba(138, 193, 252, 0.77), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+      }}
+           variant="default" // Changed from "link" to "default"
+          className="bg-gradient-to-b from-blue-700 to-gray-900/10 text-white w-full transition-colors duration-300 transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
         >
-          Read More <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+           <ExternalLink className="w-4 h-4 mr-1" />Read More
         </Button>
       </Link>
     </div>
@@ -171,6 +195,18 @@ export default function Blog() {
                         ))
                     )}
                 </div>
+                {hasMorePosts && (
+    <div className="flex justify-center mt-8">
+        <Button 
+         style={{
+                        boxShadow:
+                          "inset 0 -2px 5px rgba(249, 195, 195, 0.65), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+                      }}
+        onClick={handleLoadMore} className='px-6 py-3 text-lg font-semibold bg-gradient-to-b from-red-600 to-gray-100/10 text-white rounded-lg shadow-md transform transition-all duration-300 hover:scale-105 hover:shadow-xl '>
+            Load More Posts
+        </Button>
+    </div>
+)}
             </div>
         </div>
     );

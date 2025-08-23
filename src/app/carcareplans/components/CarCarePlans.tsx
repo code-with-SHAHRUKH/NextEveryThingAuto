@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import {
   CheckCircle,
   Shield,
@@ -36,6 +37,21 @@ interface PlanCardProps {
   plan: Plan;
   index: number;
 }
+
+  const renderStars = (rating: number) => {
+    return (
+      <div className="flex">
+        {[...Array(5)].map((_, i) => (
+          <Star
+            key={i}
+            className={`w-7 h-7 ${
+              i < rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'
+            }`}
+          />
+        ))}
+      </div>
+    );
+  };
 export default function CarCarePlans() {
  const [plans, setPlans] = useState<Plan[]>([]);
   const [billingPeriod, setBillingPeriod] = useState("monthly");
@@ -234,114 +250,115 @@ export default function CarCarePlans() {
  
 >
     
-  <Card className={`relative overflow-hidden m-4 border-2 bg-gradient-to-b from-white via-gray-100 to-gray-50 shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col ${colors.border} ${isVIP ? 'ring-2 ring-purple-300' : ''} ${isEssential ? 'ring-2 ring-green-300' : ''}`}
-   
-  >
+<Card className={`relative overflow-hidden m-0 border-1 bg-gradient-to-b from-white via-gray-100 to-gray-50 shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col border`}>
 
     {/* Gradient Header with Shine Animation */}
-    <div className={`bg-gradient-to-r ${colors.gradient} text-white p-8 text-center relative overflow-hidden`}>
-      {/* Overlay Shine Effect */}
-      <div className="absolute inset-0 bg-black/10"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 bg-[length:200%_100%] animate-[shine_3s_linear_infinite]" />
-      
-      <div className="relative z-10">
-        <div className="border-2 w-20 h-20 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm shadow-inner">
-          {getIcon(plan.name)}
+  <div className={`bg-gradient-to-r ${colors.gradient} text-white p-4 text-center relative overflow-hidden h-60`}>
+    {/* Overlay Shine Effect */}
+    <div className="absolute inset-0 bg-black/10"></div>
+    <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 bg-[length:200%_100%] animate-[shine_3s_linear_infinite]" />
+    
+    <div className="relative z-10">
+        <div className="border-2 w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm shadow-inner">
+            {getIcon(plan.name)}
         </div>
-        <h3 className="text-3xl font-bold mb-2 drop-shadow-sm text-gray-700">{plan.name} Plan</h3>
-        <p className="text-white/90 text-lg h-10">{plan.description}</p>
-      </div>
+        <h3 className="text-2xl font-bold mb-2 drop-shadow-sm text-gray-700">{plan.name} Plan</h3>
+        <p className="text-white/90 text-md h-10">{plan.description}</p>
     </div>
+</div>
 
-    <CardContent className="p-8 flex flex-col flex-grow">
-      
-      {/* Popular / Essential Badge */}
-      {plan?.is_popular && (
-        <div className="mb-6 text-center">
-          <Badge className={`${colors.accent} text-white px-6 py-2 text-sm font-bold shadow-lg animate-bounce`}>
-            {isEssential ? 'ONLINE EXCLUSIVE' : 'MOST POPULAR'}
-          </Badge>
-        </div>
-      )}
-
-      {/* VIP Highlight */}
-      {isVIP && (
-        <div className="mb-6 p-4 bg-gradient-to-r from-purple-100 to-indigo-100 border-2 border-purple-300 rounded-xl shadow-inner">
-          <div className="text-center">
-            <Badge className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 text-sm font-bold mb-3 animate-pulse">
-              🌟 PREMIUM COVERAGE 🌟
-            </Badge>
-            <p className="text-purple-900 font-bold text-lg leading-tight">
-              <span className="bg-yellow-300 px-2 py-1 rounded shadow">FULL VEHICLE COVERAGE</span>
-            </p>
-            <p className="text-purple-800 text-sm mt-2 font-semibold">
-              Everything excluding catalytic converters, paint, body panels, and/or anything attached to the exterior of the vehicle
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* Pricing */}
-      <div className="text-center mb-8">
-        <div className="flex items-baseline justify-center mb-2">
-          <span className="text-3xl font-bold text-gray-900">
-            ${billingPeriod === 'monthly' ? plan.monthly_price : plan.yearly_price}
-          </span>
-          <span className="text-3xl text-gray-600 ml-2">
-            /{billingPeriod === 'monthly' ? 'month' : 'year'}
-          </span>
-        </div>
-
-        {billingPeriod === 'yearly' && yearlyDiscount > 0 && (
-          <div className="flex items-center justify-center space-x-2 mb-2">
-            <Badge variant="outline" className="text-green-600 border-green-600">
-              Save {yearlyDiscount}%
-            </Badge>
-            <span className="text-sm text-gray-500 line-through">
-              ${plan.monthly_price * 12}/year
-            </span>
-          </div>
-        )}
+    <CardContent className="p-1 pt-6 pb-2 flex flex-col flex-grow">
         
-        {isEssential && (
-          <Badge className="bg-green-100 text-green-800 font-semibold shadow-sm">
-            Cancel Anytime!
-          </Badge>
+        {/* Popular / Essential Badge */}
+        {plan?.is_popular && (
+            <div className="mb-1 text-center">
+                <Badge className={`${colors.accent} text-white px-1 pt-1 py-0 text-sm font-semibold shadow-lg animate-bounce`}>
+                    {isEssential ? 'ONLINE EXCLUSIVE' : 'MOST POPULAR'}
+                </Badge>
+            </div>
         )}
-      </div>
 
-      {/* Features List with Glow */}
-      <ul className="space-y-2 mb-8 flex-grow h-44 max-h-48 md:max-h-64 overflow-y-auto">
-        {Array.isArray(plan.features) && plan.features.map((feature:any, i:any) => (
-          <li key={i} className="flex items-start space-x-3">
-            <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0 animate-pulse" />
-            <span className={`text-gray-700 ${feature.includes('🚨') ? 'font-semibold text-orange-600' : ''}`}>
-              {feature}
-            </span>
-          </li>
-        ))}
-      </ul>
+        {/* VIP Highlight */}
+        {isVIP && (
+            <div className="mb-6 p-4 bg-gradient-to-r from-purple-100 to-indigo-100 border-2 border-purple-300 rounded-xl shadow-inner">
+                <div className="text-center">
+                    <Badge className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 text-sm font-bold mb-3 animate-pulse">
+                        🌟 PREMIUM COVERAGE 🌟
+                    </Badge>
+                    <p className="text-purple-900 font-bold text-lg leading-tight">
+                        <span className="bg-yellow-300 px-2 py-1 rounded shadow">FULL VEHICLE COVERAGE</span>
+                    </p>
+                    <p className="text-purple-800 text-sm mt-2 font-semibold">
+                        Everything excluding catalytic converters, paint, body panels, and/or anything attached to the exterior of the vehicle
+                    </p>
+                </div>
+            </div>
+        )}
 
-      {/* CTA Button */}
-      <div className="space-y-3 mt-auto">
-        <a href="tel:516-775-9724" className="block">
-          <Button
-            className={`w-full py-4 text-md font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl bg-gradient-to-r ${colors.gradient} text-white border-0 ${isEssential ? 'animate-pulse hover:animate-none' : ''}`}
-          >
-            <Phone className="w-5 h-5 mr-2" />
-            {isEssential ? 'JOIN ONLINE EXCLUSIVE' : 'ENROLL NOW'}
-          </Button>
-        </a>
-        <p className="text-center text-sm text-gray-500">
-          Call (516) 775-9724 to get started
-        </p>
-      </div>
+        {/* Pricing */}
+        <div className="text-center mb-8">
+            <div className="flex items-baseline justify-center mb-2">
+                <span className="text-2xl font-bold text-gray-900">
+                    ${billingPeriod === 'monthly' ? plan.monthly_price : plan.yearly_price}
+                </span>
+                <span className="text-2xl text-gray-600 ml-2">
+                    /{billingPeriod === 'monthly' ? 'month' : 'year'}
+                </span>
+            </div>
+
+            {billingPeriod === 'yearly' && yearlyDiscount > 0 && (
+              <div className="flex flex-col items-center justify-center mb-0 space-y-1">
+  <Badge variant="outline" className="text-green-600 border-green-600">
+    Save {yearlyDiscount}%
+  </Badge>
+  <span className="text-sm text-gray-500 line-through">
+    ${plan.monthly_price * 12}/year
+  </span>
+</div>
+
+            )}
+            
+            {isEssential && (
+                <Badge className="bg-green-100 text-green-800 font-semibold shadow-sm">
+                    Cancel Anytime!
+                </Badge>
+            )}
+        </div>
+
+        {/* Features List with Glow */}
+        {/* Use a fixed height and overflow to prevent layout shifts */}
+        <ul className="space-y-2 mb-8 pl-3 flex-grow overflow-y-auto">
+            {Array.isArray(plan.features) && plan.features.map((feature:any, i:any) => (
+                <li key={i} className="flex items-start space-x-3">
+                    <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0 animate-pulse" />
+                    <span className={`text-gray-700 ${feature.includes('🚨') ? 'font-semibold text-orange-600' : ''}`}>
+                        {feature}
+                    </span>
+                </li>
+            ))}
+        </ul>
+
+        {/* CTA Button */}
+ <div className="space-y-3 mt-auto">
+  <a href="tel:516-775-9724" className="block w-full">
+    <Button
+      className={`w-full py-4 text-sm font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl bg-gradient-to-r ${colors.gradient} text-white border-0 ${isEssential ? 'animate-pulse hover:animate-none' : ''}`}
+    >
+      
+      {isEssential ? '' : <Phone className="w-5 h-5 mr-2" />}
+      {isEssential ? 'JOIN ONLINE EXCLUSIVE' : 'ENROLL NOW'}
+    </Button>
+  </a>
+  <p className="text-center text-sm text-gray-500">
+    Call (516) 775-9724 to get started
+  </p>
+</div>
     </CardContent>
 
     {/* Decorative Bubbles */}
     <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-10 translate-x-10"></div>
     <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/5 rounded-full translate-y-8 -translate-x-8"></div>
-  </Card>
+</Card>
 
   {/* Keyframes for Shine Effect
   <style jsx>{`
@@ -417,13 +434,14 @@ export default function CarCarePlans() {
                 <TabsList className="bg-gray-50 backdrop-blur-sm p-0 rounded-3xl shadow-lg border border-gray-300">
                   <TabsTrigger 
                     value="monthly" 
-                    className="px-3 py-3 font-semibold data-[state=active]:bg-gray-400 data-[state=active]:text-white data-[state=active]:shadow-lg rounded-3xl transition-all duration-300"
+                    className="px-3 py-3 font-semibold data-[state=active]:bg-gradient-to-b from-blue-700 to-gray-800 data-[state=active]:text-white data-[state=active]:shadow-lg rounded-3xl transition-all duration-300"
                   >
                     Monthly Plans
                   </TabsTrigger>
                   <TabsTrigger 
+                  
                     value="yearly" 
-                    className="px-2 py-3 pl-3 font-semibold data-[state=active]:bg-gray-400 data-[state=active]:text-white data-[state=active]:shadow-lg rounded-3xl transition-all duration-300"
+                    className="px-2 py-3 pl-3 font-semibold data-[state=active]:bg-gradient-to-b from-blue-700 to-gray-800 data-[state=active]:text-white data-[state=active]:shadow-lg rounded-3xl transition-all duration-300"
                   >
                     <span className="flex items-center space-x-1">
                       <span>Yearly Plans</span>
@@ -435,7 +453,7 @@ export default function CarCarePlans() {
             </div>
 
             {/* Plans Grid - Now 2 columns max for better visibility */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-2 mb-16 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-6 gap-6 lg:gap-2 mb-16 max-w-7xl mx-auto">
               {plans.map((plan, index) => (
                 <PlanCard key={plan.id} plan={plan} index={index} />
               ))}
@@ -456,53 +474,54 @@ export default function CarCarePlans() {
             </div>
             
             <div className="grid lg:grid-cols-3 gap-4">
-              <div className="text-center group transform transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-md p-4 rounded-2xl bg-white/60 backdrop-blur-md border border-gray-200 animate-fadeIn">
-                <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <TrendingUp className="w-12 h-12 text-white" />
+            <div className="text-center group transform transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-md p-2 rounded-2xl bg-gradient-to-b from-white via-gray-100 to-gray-50 backdrop-blur-md border border-gray-100 animate-fadeIn">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <TrendingUp className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">Increase Reliability</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">
+                <h3 className="text-xl font-bold mb-2 text-gray-900">Increase Reliability</h3>
+                <p className="text-gray-600 text-md p-2 leading-relaxed">
                   Well-maintained vehicles can exceed 200,000 miles, while poorly maintained ones have a much shorter lifespan. Regular care keeps you on the road longer.
                 </p>
               </div>
-              
-              <div className="text-center group transform transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-md p-4 rounded-2xl bg-white/60 backdrop-blur-md border border-gray-200 animate-fadeIn">
-                <div className="w-24 h-24 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Shield className="w-12 h-12 text-white" />
+               <div className="text-center group transform transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-md p-2 rounded-2xl bg-gradient-to-b from-white via-gray-100 to-gray-50 backdrop-blur-md border border-gray-100 animate-fadeIn">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Shield className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">Ensure Safety</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  Nearly 40% of car crashes are due to preventable mechanical failures. Our comprehensive inspections and maintenance keep you and your family safe.
-                </p>
+                <h3 className="text-xl font-bold mb-2 text-gray-900">Ensure Safety</h3>
+                <p className="text-gray-600 text-md p-2 leading-relaxed">
+                   Nearly 40% of car crashes are due to preventable mechanical failures. Our comprehensive inspections and maintenance keep you and your family safe.
+               </p>
               </div>
-              
-              <div className="text-center group transform transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-md p-4 rounded-2xl bg-white/60 backdrop-blur-md border border-gray-200 animate-fadeIn">
-                <div className="w-24 h-24 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Zap className="w-12 h-12 text-white" />
+               <div className="text-center group transform transition-all duration-500 hover:-translate-y-2 shadow-sm hover:shadow-md p-2 rounded-2xl bg-gradient-to-b from-white via-gray-100 to-gray-50 backdrop-blur-md border border-gray-100 animate-fadeIn">
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <Zap className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-gray-900">Decrease Costs</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">
+                <h3 className="text-xl font-bold mb-2 text-gray-900">Decrease Costs</h3>
+                <p className="text-gray-600 text-md p-2 leading-relaxed">
                   Neglecting routine maintenance can lead to repairs that cost 4x more than regular upkeep. Prevention is always cheaper than repair.
-                </p>
+               </p>
               </div>
+              
             </div>
           </div>
         </section>
 
         {/* Brochure Download Section */}
         <section className="py-20 shadow-lg bg-gradient-to-r from-gray-50 to-blue-100">
-            <div className="max-w-4xl mx-auto px-4 text-center">
-                <div className="bg-white rounded-2xl p-12 shadow-xl" style={{
-                boxShadow: 'inset 0 -3px 8px rgba(0, 0, 0, 0.08),inset 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 7px rgba(0, 0, 0, 0.11)'
-              }}>
-                    <Download className="w-16 h-16 mx-auto text-blue-600 mb-6" />
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Download Our Car Care Brochure</h2>
-                    <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+            <div className="max-w-3xl mx-auto px-0 text-center">
+                <div className="bg-gradient-to-b from-white via-gray-100 to-gray-50 rounded-2xl p-6 shadow-lg">
+                    <Download className="w-14 h-14 mx-auto text-blue-800 mb-4" />
+                    <h2 className="text-3xl font-bold text-gray-900 mb-2">Download Our Car Care Brochure</h2>
+                    <p className="text-gray-600 text-lg mb-4 max-w-xl mx-auto">
                         Get a detailed, print-friendly overview of all our car care plans to review at your convenience.
                     </p>
-                    {/* <Button
+                    <Button
+                                                        style={{
+        boxShadow:
+          "inset 0 -2px 5px rgba(165, 208, 255, 0.47), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 8px 14px rgba(0, 0, 0, 0.25)",
+      }}
                         size="lg"
-                        className="btn-primary font-bold text-lg px-8 py-4"
+                        className="bg-gradient-to-b from-blue-700 to-gray-100/10 rounded-lg font-semibold text-lg px-6 py-4 transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
                         onClick={handleDownloadBrochure}
                         disabled={isDownloading}
                     >
@@ -517,58 +536,92 @@ export default function CarCarePlans() {
                                 Download Brochure (PDF)
                             </>
                         )}
-                    </Button> */}
+                    </Button>
                 </div>
             </div>
         </section>
 
         {/* Testimonial Section */}
         <section className="py-20 bg-gradient-to-r from-blue-100 to-gray-50">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <div className="bg-white rounded-2xl p-12"  style={{
-                boxShadow: 'inset 0 -3px 8px rgba(0, 0, 0, 0.08),inset 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 7px rgba(0, 0, 0, 0.11)'
-              }}>
-              <div className="flex justify-center mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-8 h-8 text-yellow-400 fill-current" />
-                ))}
-              </div>
-              <blockquote className="text-2xl lg:text-3xl font-medium text-gray-900 mb-8 italic">
-                &quot;Everything Auto&apos;s car care plan has saved me thousands of dollars in unexpected repairs. The digital inspections show me exactly what&apos;s happening with my car. Best investment I&apos;ve made!&quot;
-              </blockquote>
-              <div className="flex items-center justify-center space-x-4">
-                <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">SM</span>
-                </div>
-                <div className="text-left">
-                  <p className="font-bold text-gray-900">Sarah Martinez</p>
-                  <p className="text-gray-600">Franklin Square Resident, 3-Year Member</p>
+         
+
+          <motion.div
+        
+            variants={fadeIn("up", "spring",  1* 0.5, 0.75)}
+          >
+            <div className="flex justify-center p-0 font-sans">
+              <div className="flex flex-col max-w-lg md:max-w-3xl w-full">
+                
+                {/* Review Bubble Card (animated, center aligned) */}
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  className="relative bg-gradient-to-b from-white via-gray-100 to-gray-50 p-8 rounded-2xl shadow-md hover:shadow-xl 
+                             border border-gray-100 mb-5 w-full transition-all duration-300"
+                >
+                  {/* Star Rating */}
+                  <div className="flex justify-center space-x-1 mb-3">
+                    {renderStars(5)}
+                  </div>
+          
+                  {/* Review Text */}
+                  <p className="text-center text-lg text-gray-700 leading-relaxed mb-4 italic">
+                  &quot;Everything Auto&apos;s car care plan has saved me thousands of dollars in unexpected repairs. The digital inspections show me exactly what&apos;s happening with my car. Best investment I&apos;ve made!&quot;
+              
+                  </p>
+          
+                  {/* Bubble Tail */}
+                  <div className="absolute left-8 -bottom-2 
+                                  w-4 h-4 bg-gray-50 rotate-45 border-r border-b border-gray-200">
+                  </div>
+                </motion.div>
+          
+                {/* User Info Section (LEFT aligned, connected look) */}
+                <div className="flex items-center space-x-4 ml-2 px-1">
+                  <img
+                    src={"/mypic.png"}
+                    alt='Sarah Martinez'
+                    className="w-16 h-16 rounded-full object-cover border border-gray-100 shadow-sm ring-1 ring-gray-200"
+                  />
+                  <div className="flex flex-col text-left">
+                    <span className="text-xl font-semibold text-gray-800">
+                      Sarah Martinez
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      Franklin Square Resident, 3-Year Member
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* Final CTA */}
-        <section className="py-20 bg-gradient-to-r from-blue-900 to-indigo-900 text-white">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+        <section className="py-20 bg-gradient-to-b from-blue-900 to-gray-900 text-white">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <h2 className="text-3xl lg:text-3xl font-bold mb-6 text-white">
               Ready to Protect Your Investment?
             </h2>
-            <p className="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
               Join thousands of satisfied customers who trust Everything Auto for their vehicle care. Call now to enroll in the perfect plan for your needs.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <a href="tel:516-775-9724">
-                <Button size="lg" className="bg-white text-blue-900 hover:bg-gray-100 font-bold text-xl px-12 py-6 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                  <Phone className="w-6 h-6 mr-3" />
-                  Call (516) 775-9724 Now
-                </Button>
-              </a>
+                 <a href="tel:516-775-9724">
+              <Button
+                                                 style={{
+        boxShadow:
+          "inset 0 -2px 5px rgba(249, 195, 195, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.61), 0 8px 14px rgba(0, 0, 0, 0.22)",
+      }}
+              size="lg" className="bg-gradient-to-b from-red-600 to-gray-100/10 rounded-lg font-semibold text-xl px-8 py-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                <Phone className="w-5 h-5 mr-2" />
+                CALL NOW: 516-775-9724
+              </Button>
+            </a>
               <div className="text-blue-100">
-                <p className="font-semibold text-blue-200">Mon-Sat: 8AM-6PM</p>
-                <p className="text-sm text-blue-200">Quick enrollment in under 5 minutes</p>
+                <p className="font-semibold text-gray-50">Mon-Sat: 8AM-6PM</p>
+                <p className="text-sm text-gray-200">Quick enrollment in under 5 minutes</p>
               </div>
             </div>
           </div>
