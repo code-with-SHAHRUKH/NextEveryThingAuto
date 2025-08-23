@@ -19,6 +19,7 @@ type Review = {
     id: number;
     rating: number;
     review_text: string;
+    customer_image:string;
     customer_name: string;
     review_date: string;
 };
