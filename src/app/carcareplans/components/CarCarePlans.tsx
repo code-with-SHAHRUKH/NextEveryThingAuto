@@ -250,7 +250,7 @@ export default function CarCarePlans() {
  
 >
     
-<Card className={`relative overflow-hidden m-0 border-1 bg-gradient-to-b from-white via-gray-100 to-gray-50 shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col border`}>
+<Card className={`relative overflow-hidden m-2 border-1 bg-gradient-to-b from-white via-gray-100 to-gray-50 shadow-lg hover:shadow-2xl transition-all duration-500 h-full flex flex-col border`}>
 
     {/* Gradient Header with Shine Animation */}
   <div className={`bg-gradient-to-r ${colors.gradient} text-white p-4 text-center relative overflow-hidden h-60`}>
@@ -386,45 +386,52 @@ export default function CarCarePlans() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
         {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white overflow-hidden">
-          <div className="absolute inset-0 bg-black/20"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-          
-          <div className="relative max-w-7xl mx-auto px-4 text-center z-10">
-            <div className="mb-6">
-              <Badge className="bg-white/20 text-white px-4 py-2 text-base font-semibold backdrop-blur-sm">
-                💎 Premium Auto Care Plans Franklin Square NY
-              </Badge>
-            </div>
-            <h1 className="text-4xl lg:text-6xl font-extrabold mb-6 bg-gradient-to-r from-white to-blue-500 bg-clip-text text-transparent">
-              Choose Your Perfect Car Care Plan in Franklin Square
-            </h1>
-            <p className="text-xl lg:text-2xl text-white max-w-4xl mx-auto leading-relaxed mb-8">
-              Join thousands of smart drivers who save time and money with our comprehensive maintenance plans. 
-              Trusted by Franklin Square and Nassau County since 2008. Starting at just $5/month!
-            </p>
-            
-            {/* Social Proof */}
-            <div className="flex flex-wrap justify-center items-center gap-8 text-white">
-              <div className="flex items-center space-x-2">
-                <Users className="w-6 h-6" />
-                <span className="font-semibold">5,000+ Happy Customers</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Star className="w-6 h-6 text-yellow-400" />
-                <span className="font-semibold">5.0 Google Rating</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Shield className="w-6 h-6" />
-                <span className="font-semibold">17+ Years Experience</span>
-              </div>
-            </div>
-          </div>
+       <section className="relative py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white overflow-hidden">
+  {/* Overlays */}
+  <div className="absolute inset-0 bg-black/20"></div>
+  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
 
-          {/* Decorative Elements */}
-          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full -translate-x-48 -translate-y-48"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full translate-x-48 translate-y-48"></div>
-        </section>
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+    {/* Badge */}
+    <div className="mb-4 sm:mb-6">
+      <Badge className="bg-white/20 text-white px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base font-semibold backdrop-blur-sm">
+        💎 Premium Auto Care Plans Franklin Square NY
+      </Badge>
+    </div>
+
+    {/* Heading */}
+    <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold mb-4 sm:mb-6 bg-gradient-to-r from-white to-blue-500 bg-clip-text text-transparent leading-tight">
+      Choose Your Perfect Car Care Plan in Franklin Square
+    </h1>
+
+    {/* Subheading */}
+    <p className="text-base sm:text-lg lg:text-2xl text-white max-w-2xl sm:max-w-3xl lg:max-w-4xl mx-auto leading-relaxed mb-6 sm:mb-8">
+      Join thousands of smart drivers who save time and money with our comprehensive maintenance plans. 
+      Trusted by Franklin Square and Nassau County since 2008. Starting at just $5/month!
+    </p>
+
+    {/* Social Proof */}
+    <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 text-white">
+      <div className="flex items-center space-x-2">
+        <Users className="w-5 h-5 sm:w-6 sm:h-6" />
+        <span className="font-semibold text-sm sm:text-base lg:text-lg">5,000+ Happy Customers</span>
+      </div>
+      <div className="flex items-center space-x-2">
+        <Star className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" />
+        <span className="font-semibold text-sm sm:text-base lg:text-lg">5.0 Google Rating</span>
+      </div>
+      <div className="flex items-center space-x-2">
+        <Shield className="w-5 h-5 sm:w-6 sm:h-6" />
+        <span className="font-semibold text-sm sm:text-base lg:text-lg">17+ Years Experience</span>
+      </div>
+    </div>
+  </div>
+
+  {/* Decorative Elements */}
+  <div className="absolute top-0 left-0 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 bg-blue-500/10 rounded-full -translate-x-32 sm:-translate-x-40 lg:-translate-x-48 -translate-y-32 sm:-translate-y-40 lg:-translate-y-48"></div>
+  <div className="absolute bottom-0 right-0 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 bg-purple-500/10 rounded-full translate-x-32 sm:translate-x-40 lg:translate-x-48 translate-y-32 sm:translate-y-40 lg:translate-y-48"></div>
+</section>
+
 
         {/* Billing Toggle */}
         <section className="py-16">
@@ -453,7 +460,7 @@ export default function CarCarePlans() {
             </div>
 
             {/* Plans Grid - Now 2 columns max for better visibility */}
-            <div className="grid grid-cols-1 lg:grid-cols-6 gap-6 lg:gap-2 mb-16 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-6 gap-6 lg:gap-0 mb-16 max-w-7xl mx-auto">
               {plans.map((plan, index) => (
                 <PlanCard key={plan.id} plan={plan} index={index} />
               ))}
@@ -507,95 +514,110 @@ export default function CarCarePlans() {
         </section>
 
         {/* Brochure Download Section */}
-        <section className="py-20 shadow-lg bg-gradient-to-r from-gray-50 to-blue-100">
-            <div className="max-w-3xl mx-auto px-0 text-center">
-                <div className="bg-gradient-to-b from-white via-gray-100 to-gray-50 rounded-2xl p-6 shadow-lg">
-                    <Download className="w-14 h-14 mx-auto text-blue-800 mb-4" />
-                    <h2 className="text-3xl font-bold text-gray-900 mb-2">Download Our Car Care Brochure</h2>
-                    <p className="text-gray-600 text-lg mb-4 max-w-xl mx-auto">
-                        Get a detailed, print-friendly overview of all our car care plans to review at your convenience.
-                    </p>
-                    <Button
-                                                        style={{
-        boxShadow:
-          "inset 0 -2px 5px rgba(165, 208, 255, 0.47), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 8px 14px rgba(0, 0, 0, 0.25)",
-      }}
-                        size="lg"
-                        className="bg-gradient-to-b from-blue-700 to-gray-100/10 rounded-lg font-semibold text-lg px-6 py-4 transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                        onClick={handleDownloadBrochure}
-                        disabled={isDownloading}
-                    >
-                        {isDownloading ? (
-                            <>
-                                <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                                Downloading...
-                            </>
-                        ) : (
-                            <>
-                                <Download className="w-5 h-5 mr-2" />
-                                Download Brochure (PDF)
-                            </>
-                        )}
-                    </Button>
-                </div>
-            </div>
-        </section>
+       <section className="py-12 sm:py-16 lg:py-20 shadow-lg bg-gradient-to-r from-gray-50 to-blue-100">
+  <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div className="bg-gradient-to-b from-white via-gray-100 to-gray-50 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg">
+      
+      {/* Icon */}
+      <Download className="w-12 h-12 sm:w-14 sm:h-14 mx-auto text-blue-800 mb-4" />
+
+      {/* Heading */}
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
+        Download Our Car Care Brochure
+      </h2>
+
+      {/* Paragraph */}
+      <p className="text-base sm:text-lg lg:text-xl text-gray-600 mb-6 max-w-2xl mx-auto leading-relaxed">
+        Get a detailed, print-friendly overview of all our car care plans to review at your convenience.
+      </p>
+
+      {/* Button */}
+      <Button
+        style={{
+          boxShadow:
+            "inset 0 -2px 5px rgba(165, 208, 255, 0.47), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 8px 14px rgba(0, 0, 0, 0.25)",
+        }}
+        size="lg"
+        className="w-full sm:w-auto bg-gradient-to-b from-blue-700 to-gray-100/10 
+                   rounded-lg font-semibold text-base sm:text-lg 
+                   px-4 sm:px-6 lg:px-8 py-3 sm:py-4 
+                   transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+        onClick={handleDownloadBrochure}
+        disabled={isDownloading}
+      >
+        {isDownloading ? (
+          <>
+            <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+            Downloading...
+          </>
+        ) : (
+          <>
+            <Download className="w-5 h-5 mr-2" />
+            Download Brochure (PDF)
+          </>
+        )}
+      </Button>
+    </div>
+  </div>
+</section>
+
 
         {/* Testimonial Section */}
-        <section className="py-20 bg-gradient-to-r from-blue-100 to-gray-50">
-         
-
-          <motion.div
+        <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-blue-100 to-gray-50">
+  <motion.div variants={fadeIn("up", "spring", 0.5, 0.75)}>
+    <div className="flex justify-center font-sans px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col max-w-md sm:max-w-xl md:max-w-3xl w-full">
         
-            variants={fadeIn("up", "spring",  1* 0.5, 0.75)}
-          >
-            <div className="flex justify-center p-0 font-sans">
-              <div className="flex flex-col max-w-lg md:max-w-3xl w-full">
-                
-                {/* Review Bubble Card (animated, center aligned) */}
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                  className="relative bg-gradient-to-b from-white via-gray-100 to-gray-50 p-8 rounded-2xl shadow-md hover:shadow-xl 
-                             border border-gray-100 mb-5 w-full transition-all duration-300"
-                >
-                  {/* Star Rating */}
-                  <div className="flex justify-center space-x-1 mb-3">
-                    {renderStars(5)}
-                  </div>
-          
-                  {/* Review Text */}
-                  <p className="text-center text-lg text-gray-700 leading-relaxed mb-4 italic">
-                  &quot;Everything Auto&apos;s car care plan has saved me thousands of dollars in unexpected repairs. The digital inspections show me exactly what&apos;s happening with my car. Best investment I&apos;ve made!&quot;
-              
-                  </p>
-          
-                  {/* Bubble Tail */}
-                  <div className="absolute left-8 -bottom-2 
-                                  w-4 h-4 bg-gray-50 rotate-45 border-r border-b border-gray-200">
-                  </div>
-                </motion.div>
-          
-                {/* User Info Section (LEFT aligned, connected look) */}
-                <div className="flex items-center space-x-4 ml-2 px-1">
-                  <img
-                    src={"/mypic.png"}
-                    alt='Sarah Martinez'
-                    className="w-16 h-16 rounded-full object-cover border border-gray-100 shadow-sm ring-1 ring-gray-200"
-                  />
-                  <div className="flex flex-col text-left">
-                    <span className="text-xl font-semibold text-gray-800">
-                      Sarah Martinez
-                    </span>
-                    <span className="text-sm text-gray-500">
-                      Franklin Square Resident, 3-Year Member
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </section>
+        {/* Review Bubble Card */}
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 300, damping: 15 }}
+          className="relative bg-gradient-to-b from-white via-gray-100 to-gray-50 
+                     p-4 sm:p-6 lg:p-8 rounded-2xl shadow-md hover:shadow-xl 
+                     border border-gray-100 mb-4 sm:mb-6 w-full transition-all duration-300"
+        >
+          {/* Star Rating */}
+          <div className="flex justify-center space-x-1 mb-2 sm:mb-3">
+            {renderStars(5)}
+          </div>
+
+          {/* Review Text */}
+          <p className="text-center text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed mb-3 sm:mb-4 italic">
+            &quot;Everything Auto&apos;s car care plan has saved me thousands of dollars 
+            in unexpected repairs. The digital inspections show me exactly what&apos;s 
+            happening with my car. Best investment I&apos;ve made!&quot;
+          </p>
+
+          {/* Bubble Tail */}
+          <div className="absolute left-6 sm:left-8 -bottom-2 
+                          w-3 h-3 sm:w-4 sm:h-4 bg-gray-50 rotate-45 
+                          border-r border-b border-gray-200">
+          </div>
+        </motion.div>
+
+        {/* User Info Section */}
+        <div className="flex items-center space-x-3 sm:space-x-4 ml-1 sm:ml-2">
+          <img
+            src={"/mypic.png"}
+            alt="Sarah Martinez"
+            className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 
+                       rounded-full object-cover border border-gray-100 
+                       shadow-sm ring-1 ring-gray-200"
+          />
+          <div className="flex flex-col text-left">
+            <span className="text-lg sm:text-xl font-semibold text-gray-800">
+              Sarah Martinez
+            </span>
+            <span className="text-xs sm:text-sm text-gray-500">
+              Franklin Square Resident, 3-Year Member
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </motion.div>
+</section>
+
 
         {/* Final CTA */}
         <section className="py-20 bg-gradient-to-b from-blue-900 to-gray-900 text-white">
@@ -608,17 +630,23 @@ export default function CarCarePlans() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                 <a href="tel:516-775-9724">
-              <Button
-                                                 style={{
-        boxShadow:
-          "inset 0 -2px 5px rgba(249, 195, 195, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.61), 0 8px 14px rgba(0, 0, 0, 0.22)",
-      }}
-              size="lg" className="bg-gradient-to-b from-red-600 to-gray-100/10 rounded-lg font-semibold text-xl px-8 py-6 transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                <Phone className="w-5 h-5 mr-2" />
-                CALL NOW: 516-775-9724
-              </Button>
-            </a>
+            <a href="tel:516-775-9724" className="block w-full sm:w-auto">
+  <Button
+    style={{
+      boxShadow:
+        "inset 0 -2px 5px rgba(249, 195, 195, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.61), 0 8px 14px rgba(0, 0, 0, 0.22)",
+    }}
+    size="lg"
+    className="w-full sm:w-auto flex items-center justify-center bg-gradient-to-b from-red-600 to-gray-100/10 
+               rounded-lg font-semibold text-lg sm:text-xl 
+               px-4 sm:px-8 py-4 sm:py-6 
+               transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+  >
+    <Phone className="w-5 h-5 mr-2" />
+    <span className="truncate">CALL NOW: 516-775-9724</span>
+  </Button>
+</a>
+
               <div className="text-blue-100">
                 <p className="font-semibold text-gray-50">Mon-Sat: 8AM-6PM</p>
                 <p className="text-sm text-gray-200">Quick enrollment in under 5 minutes</p>

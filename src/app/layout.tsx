@@ -159,47 +159,64 @@ export default function Layout({
 
 
       {/* Top Bar */}
-      <div 
-                                       style={{
-        boxShadow:
-          "inset 0 -2px 5px rgba(138, 193, 252, 0.44), inset 0 2px 5px rgba(19, 19, 19, 0.6), 0 2px 5px rgba(0, 0, 0, 0.11)",
-      }}
-      className="bg-gradient-to-b from-blue-800 to-gray-800 text-white border-b border-gray-500 py-3 px-10 sm:px-40 md:px-10 lg:px-10 text-sm">
-        <div className="max-w-screen-2xl mx-auto flex justify-between items-center gap-8">
-            <div className="flex-1 flex items-center gap-x-8">
-                <a href="tel:516-775-9724" className="flex items-center space-x-2 text-white hover:text-blue-300 transition-colors font-semibold">
-                  <Phone className="w-4 h-4" />
-                  <span>(516) 775-9724</span>
-                </a>
-                <a href="https://www.google.com/maps/place/980+Washington+St,+Franklin+Square,+NY+11010" target="_blank" rel="noopener noreferrer" className="hidden lg:flex items-center space-x-2 text-white hover:text-blue-200 transition-colors">
-                  <MapPin className="w-4 h-4" />
-                  <span>980 Washington St, Franklin Square, NY 11010</span>
-                </a>
-                <a href="mailto:everythingautonewyork@gmail.com" className="hidden xl:flex items-center space-x-2 text-white hover:text-blue-200 transition-colors">
-                  <Mail className="w-4 h-4" />
-                  <span>everythingautonewyork@gmail.com</span>
-                </a>
-            </div>
-            <div className="flex items-center space-x-4">
-                {socialLinks.map(link => (
-    <a
-      key={link.name}
-      href={link.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="p-2 rounded-full transition-transform hover:scale-110"
-      style={{
-        background: link.color,
-        boxShadow:
-          "inset 0 -2px 3px rgba(255, 255, 255, 0.48), inset 0 2px 2px rgba(19, 19, 19, 0.61)",
-      }}
-    >
-      <link.icon className="w-5 h-5 text-white" />
-    </a>
-  ))}
-            </div>
-        </div>
-      </div>
+     <div
+  style={{
+    boxShadow:
+      "inset 0 -2px 5px rgba(138, 193, 252, 0.44), inset 0 2px 5px rgba(19, 19, 19, 0.6), 0 2px 5px rgba(0, 0, 0, 0.11)",
+  }}
+  className="bg-gradient-to-b from-blue-800 to-gray-800 text-white border-b border-gray-500 
+             py-3 px-4 sm:px-8 md:px-10 lg:px-20 text-xs sm:text-sm"
+>
+  <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    {/* Left side: Contact info */}
+    <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-center sm:text-left">
+      <a
+        href="tel:516-775-9724"
+        className="flex items-center space-x-2 text-white hover:text-blue-300 transition-colors font-semibold"
+      >
+        <Phone className="w-4 h-4" />
+        <span>(516) 775-9724</span>
+      </a>
+      <a
+        href="https://www.google.com/maps/place/980+Washington+St,+Franklin+Square,+NY+11010"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden md:flex items-center space-x-2 text-white hover:text-blue-200 transition-colors"
+      >
+        <MapPin className="w-4 h-4" />
+        <span>980 Washington St, Franklin Square, NY 11010</span>
+      </a>
+      <a
+        href="mailto:everythingautonewyork@gmail.com"
+        className="hidden lg:flex items-center space-x-2 text-white hover:text-blue-200 transition-colors"
+      >
+        <Mail className="w-4 h-4" />
+        <span>everythingautonewyork@gmail.com</span>
+      </a>
+    </div>
+
+    {/* Right side: Social links */}
+    <div className="flex items-center space-x-3">
+      {socialLinks.map((link) => (
+        <a
+          key={link.name}
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="p-2 rounded-full transition-transform hover:scale-110"
+          style={{
+            background: link.color,
+            boxShadow:
+              "inset 0 -2px 3px rgba(255, 255, 255, 0.48), inset 0 2px 2px rgba(19, 19, 19, 0.61)",
+          }}
+        >
+          <link.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
 
       {/* Main Header */}
       <header className="bg-white/70 backdrop-blur-md border-b border-white/70 sticky top-0 z-50">
@@ -325,13 +342,16 @@ export default function Layout({
                   </nav>
                   <div className="mt-8 space-y-3">
                      <a href="tel:516-775-9724" className="w-full block">
-                       <Button className="w-full btn-accent font-semibold text-lg py-3 flex items-center justify-center space-x-2">
-                         <Phone className="w-5 h-5" />
-                         <span>CALL NOW: (516) 775-9724</span>
+                       <Button className="w-full bg-gradient-to-b from-red-600 to-gray-100/10 font-semibold text-lg px-4 xl:px-6 py-2 xl:py-3 flex items-center justify-center space-x-1">
+                         <Phone className="w-4 h-4" />
+                         <span>(516) 775-9724</span>
                        </Button>
                      </a>
                      <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer" className="w-full block">
-                       <Button className="w-full btn-primary font-semibold text-lg py-3">Book Appointment</Button>
+                       
+                       <Button className="w-full bg-gradient-to-b from-blue-700 to-gray-100/10 font-semibold px-4 xl:px-6 py-2 xl:py-3 text-lg py-3">
+                       <Calendar className="w-4 h-4" />
+                       Book Appointment</Button>
                      </a>
                   </div>
                 </SheetContent>

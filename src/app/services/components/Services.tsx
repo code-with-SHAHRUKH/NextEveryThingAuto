@@ -1,5 +1,7 @@
 "use client";
 import React from 'react';
+import { useEffect, useState } from "react";
+
 import Link from 'next/link';
 import { createPageUrl } from '@/utils/createPageUrl';
 import { Button } from '@/components/ui/button';
@@ -31,6 +33,17 @@ const services = [
 ];
 
 export default function ServicesPage() {
+    const [isLaptop, setIsLaptop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLaptop(window.innerWidth >= 1024); // lg breakpoint
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div className="bg-[var(--color-background-offset)]">
 <section
@@ -47,12 +60,13 @@ export default function ServicesPage() {
       Our Automotive Services
     </h1>
 
-    <motion.div
+  <motion.div
       initial={{ width: 0 }}
-      animate={{ width: "35rem" }}
+      animate={{ width: isLaptop ? "35rem" : "17rem" }}
       transition={{ duration: 1, ease: "easeOut" }}
       className="h-1 bg-gradient-to-b from-blue-800 to-gray-800 mx-auto mb-6 rounded-full"
     />
+
 
     <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
       We offer a full range of expert auto repair and maintenance services in Franklin Square
@@ -125,31 +139,42 @@ export default function ServicesPage() {
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
               Don&apos;t wait for a small problem to become a major repair. Contact our expert team in Franklin Square today!
             </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-        
-               <a href="tel:516-775-9724" className="w-full sm:w-auto">
-                                    <Button
-                                      style={{
-                                        boxShadow:
-                                          "inset 0 -2px 5px rgba(249, 195, 195, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
-                                      }}
-                                      size="lg" className="bg-gradient-to-b from-red-600 to-gray-100/10 rounded-lg font-semibold text-xl px-8 py-6 w-full flex items-center justify-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                                      <Phone className="w-5 h-5 mr-2" />
-                                      CALL NOW: (516) 775-9724
-                                    </Button>
-                                  </a>
-                                  <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer">
-                                    <Button
-                                      style={{
-                                        boxShadow:
-                                          "inset 0 -2px 5px rgba(138, 193, 252, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
-                                      }}
-                                      size="lg" className="bg-gradient-to-b from-blue-700 to-gray-100/10 rounded-lg font-semibold text-xl px-8 py-6 w-full sm:w-auto transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                                      <Calendar className="w-5 h-5 mr-2" />
-                                      Book Appointment
-                                    </Button>
-                                  </a>
-            </div>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full">
+  <a href="tel:516-775-9724" className="w-full sm:w-auto">
+    <Button
+      style={{
+        boxShadow:
+          "inset 0 -2px 5px rgba(249, 195, 195, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+      }}
+      size="lg"
+      className="bg-gradient-to-b from-red-600 to-gray-100/10 rounded-lg font-semibold 
+                 text-lg sm:text-xl px-6 sm:px-8 py-4 sm:py-6 
+                 w-full flex items-center justify-center 
+                 transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+    >
+      <Phone className="w-5 h-5 mr-2" />
+      CALL NOW: (516) 775-9724
+    </Button>
+  </a>
+
+  <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+    <Button
+      style={{
+        boxShadow:
+          "inset 0 -2px 5px rgba(138, 193, 252, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+      }}
+      size="lg"
+      className="bg-gradient-to-b from-blue-700 to-gray-100/10 rounded-lg font-semibold 
+                 text-lg sm:text-xl px-6 sm:px-8 py-4 sm:py-6 
+                 w-full sm:w-auto flex items-center justify-center
+                 transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+    >
+      <Calendar className="w-5 h-5 mr-2" />
+      Book Appointment
+    </Button>
+  </a>
+</div>
+
         </div>
       </section>
     </div>

@@ -54,7 +54,7 @@ useEffect(() => {
   const updateRadius = () => {
     if (window.innerWidth < 640) {
       // mobile
-      setRadius(160);
+      setRadius(145);
     } else {
       // tablet/laptop/desktop
       setRadius(326);
@@ -137,55 +137,73 @@ useEffect(() => {
     perspective: "1200px",
   }}
 >
-  {services.map((service, index) => (
-    <div
-      key={service.title}
-      ref={(el) => {
-        imagesRef.current[index] = el;
-      }}
-      className="
-    mt-12
+{services.map((service, index) => (
+  <div
+    key={service.title}
+    ref={(el) => {
+      imagesRef.current[index] = el;
+    }}
+    className="
+      mt-12
       mb-0
       md:mb-8
       sm:mb-6
-     
-        absolute 
-        w-[110px] h-[230px]     /* mobile */
-        sm:w-[220px] sm:h-[260px]  /* tablet */
-        md:w-[270px] md:h-[200px]  /* laptop/desktop */
-      "
-      style={{ transformOrigin: "50% 50%" }}
+      absolute
+      w-[120px] h-[250px]        /* mobile */
+      sm:w-[220px] sm:h-[260px]  /* tablet */
+      md:w-[270px] md:h-[260px]  /* laptop/desktop (same height) */
+    "
+    style={{ transformOrigin: "50% 50%" }}
+  >
+    <Link
+      href={createPageUrl(service.path)}
+      className="block group h-full"
+      aria-label={`Learn more about ${service.title}`}
     >
-      <Link
-        href={createPageUrl(service.path)}
-        className="block group"
-        aria-label={`Learn more about ${service.title}`}
+      <article
+        className="
+          bg-gradient-to-b from-white to-gray-50 
+          p-4 rounded-md h-full
+          border border-gray-200 shadow-xl 
+          transition-all duration-500 hover:-translate-y-2 
+          flex flex-col items-center text-center
+        "
       >
-        <article className="bg-gradient-to-b from-white to-gray-50 p-4 rounded-md h-full border border-gray-200 shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col items-center text-center">
-          <div className="mb-3">
-            <img
-              src={service.icon}
-              alt={service.title}
-              className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain"
-            />
-          </div>
+        {/* Icon */}
+        <div className="mb-3">
+          <img
+            src={service.icon}
+            alt={service.title}
+            className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain"
+          />
+        </div>
 
-          <h3 className="text-sm sm:text-md font-bold text-black mb-2">
-            {service.title}
-          </h3>
+        {/* Title */}
+        <h3 className="text-sm sm:text-md font-bold text-black mb-2 line-clamp-2">
+          {service.title}
+        </h3>
 
-          <p className="text-xs sm:text-sm text-[var(--color-text-light)] mb-4 line-clamp-6 sm:line-clamp-none">
-            {service.description}
-          </p>
+        {/* Description */}
+        <p className="text-xs sm:text-sm text-[var(--color-text-light)] mb-4 line-clamp-3 sm:line-clamp-4">
+          {service.description}
+        </p>
 
-          <span className="text-xs sm:text-sm text-[var(--color-primary)] font-semibold flex items-center justify-center space-x-1 transition-all duration-300 group-hover:translate-x-1">
+        {/* Button */}
+        <div className="mt-auto">
+          <span
+            className="text-xs sm:text-sm text-[var(--color-primary)]
+                       flex items-center justify-center space-x-1 
+                       transition-all duration-300 group-hover:translate-x-1"
+          >
             <span>Learn More</span>
             <ArrowRight className="w-4 h-4" />
           </span>
-        </article>
-      </Link>
-    </div>
-  ))}
+        </div>
+      </article>
+    </Link>
+  </div>
+))}
+
 </div>
 
 
