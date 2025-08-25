@@ -48,32 +48,49 @@ export default function ServicePageLayout({
             <div className="max-w-7xl mx-auto px-4 section-padding">
                 <div className="grid lg:grid-cols-3 gap-8 lg:gap-8">
                     {/* Main Content */}
-                    <div className="lg:col-span-2 bg-white p-6 sm:p-8 lg:p-8 lg:pt-16 rounded-lg shadow-md">
-                        <article className="prose lg:prose-lg max-w-none text-[var(--color-text-light)] prose-h2:text-[var(--color-text)] prose-h3:text-[var(--color-text)] prose-strong:text-[var(--color-text)]">
-                            {children}
+                    <div className="lg:col-span-2 bg-white p-4 sm:p-6 lg:p-8 lg:pt-16 rounded-lg shadow-md">
+  <article className="prose max-w-none text-[var(--color-text-light)] prose-h2:text-[var(--color-text)] prose-h3:text-[var(--color-text)] prose-strong:text-[var(--color-text)] prose-p:text-base sm:prose-p:text-lg">
+    {children}
 
-                            <div className="mt-12 lg:mt-12 p-6 lg:p-8 bg-gradient-to-b from-white via-gray-100 to-white rounded-lg text-center shadow-sm border-t-4 border-blue-600 not-prose">
-                                <h3 className="text-xl lg:text-2xl font-bold mb-4 text-gray-800">Ready for Expert Service?</h3>
-                                <p className="text-base lg:text-lg text-gray-600 mb-6">
-                                    Schedule your appointment online or give us a call. Our team is ready to provide the 5-star service your vehicle deserves.
-                                </p>
-                                <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                                    <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                                        <Button size="lg" className="bg-gradient-to-b from-red-600 to-gray-100/10 w-full font-bold  transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                                            <Calendar className="w-5 h-5 mr-2" />
-                                            Book Your Appointment
-                                        </Button>
-                                    </a>
-                                    <a href="tel:516-775-9724" className="w-full sm:w-auto">
-                                        <Button size="lg" className="bg-gradient-to-b from-blue-700 to-gray-100/10 w-full font-bold transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                                            <Phone className="w-5 h-5 mr-2" />
-                                            (516) 775-9724
-                                        </Button>
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
+    {/* CTA Box */}
+    <div className="mt-8 sm:mt-10 lg:mt-12 p-4 sm:p-6 lg:p-8 bg-gradient-to-b from-white via-gray-100 to-white rounded-lg text-center shadow-sm border-t-4 border-blue-600 not-prose">
+      <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 text-gray-800">
+        Ready for Expert Service?
+      </h3>
+      <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-5 sm:mb-6">
+        Schedule your appointment online or give us a call. Our team is ready to provide the 5-star service your vehicle deserves.
+      </p>
+
+      {/* Buttons */}
+      <div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 sm:gap-4">
+        <a
+          href="https://myalp.io/nqc45n"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full sm:w-auto"
+        >
+          <Button
+            size="lg"
+            className="w-full sm:w-auto bg-gradient-to-b from-red-600 to-red-700 text-white font-bold transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+          >
+            <Calendar className="w-5 h-5 mr-2" />
+            Book Your Appointment
+          </Button>
+        </a>
+        <a href="tel:516-775-9724" className="w-full sm:w-auto">
+          <Button
+            size="lg"
+            className="w-full sm:w-auto bg-gradient-to-b from-blue-700 to-blue-800 text-white font-bold transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+          >
+            <Phone className="w-5 h-5 mr-2" />
+            (516) 775-9724
+          </Button>
+        </a>
+      </div>
+    </div>
+  </article>
+</div>
+
 
                     {/* Sidebar */}
                     <aside className="space-y-6 lg:space-y-8">

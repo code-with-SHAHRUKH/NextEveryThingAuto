@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
+import Image from "next/image";
 import {
   CheckCircle,
   Shield,
@@ -597,13 +597,15 @@ export default function CarCarePlans() {
 
         {/* User Info Section */}
         <div className="flex items-center space-x-3 sm:space-x-4 ml-1 sm:ml-2">
-          <img
-            src={"/mypic.png"}
-            alt="Sarah Martinez"
-            className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 
-                       rounded-full object-cover border border-gray-100 
-                       shadow-sm ring-1 ring-gray-200"
-          />
+       <Image
+  src="/mypic.png"
+  alt="Sarah Martinez"
+  width={64}  // lg:w-16 (16 * 4 = 64px)
+  height={64} // lg:h-16 (16 * 4 = 64px)
+  className="
+             rounded-full object-cover border border-gray-100 
+             shadow-sm ring-1 ring-gray-200"
+/>
           <div className="flex flex-col text-left">
             <span className="text-lg sm:text-xl font-semibold text-gray-800">
               Sarah Martinez
