@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { createPageUrl } from '@/utils/createPageUrl';
-
+import Image from "next/image";
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Calendar, ExternalLink, Tag } from 'lucide-react';
@@ -34,7 +34,7 @@ export default function Blog() {
                     excerpt: "Learn the essential maintenance tips to keep your vehicle running smoothly in Long Island's unique driving conditions.",
                     publish_date: "2024-01-15",
                     category: "maintenance-tips",
-                    featured_image: "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=600&h=400&fit=crop"
+                    featured_image: "/Blog.jpg"
                 },
                 {
                     id: 2,
@@ -43,7 +43,7 @@ export default function Blog() {
                     excerpt: "Understanding the different types of motor oil and how to select the best one for your specific vehicle and driving conditions.",
                     publish_date: "2024-01-10",
                     category: "oil-changes",
-                    featured_image: "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=600&h=400&fit=crop"
+                    featured_image: "/Blog.jpg"
                 },
                 {
                     id: 3,
@@ -52,7 +52,7 @@ export default function Blog() {
                     excerpt: "Recognize the warning signs that indicate your brakes need professional inspection and service.",
                     publish_date: "2024-01-05",
                     category: "brake-service",
-                    featured_image: "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=600&h=400&fit=crop"
+                    featured_image: "/Blog.jpg"
                 },
                 {
                     id: 4,
@@ -61,7 +61,7 @@ export default function Blog() {
                     excerpt: "Prepare your vehicle for Long Island's winter weather with our comprehensive safety checklist.",
                     publish_date: "2024-01-01",
                     category: "seasonal-maintenance",
-                    featured_image: "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=600&h=400&fit=crop"
+                    featured_image: "/Blog.jpg"
                 },
                 {
                     id: 5,
@@ -70,7 +70,7 @@ export default function Blog() {
                     excerpt: "A comprehensive guide to your car's electrical components and common issues to watch for.",
                     publish_date: "2023-12-28",
                     category: "electrical-systems",
-                    featured_image: "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=600&h=400&fit=crop"
+                    featured_image: "/Blog.jpg"
                 },
                 {
                     id: 6,
@@ -79,7 +79,7 @@ export default function Blog() {
                     excerpt: "Why proper tire care is crucial for safety, performance, and fuel efficiency on Long Island roads.",
                     publish_date: "2023-12-25",
                     category: "tire-service",
-                    featured_image: "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=600&h=400&fit=crop"
+                    featured_image: "/Blog.jpg"
                 }
             ];
             setPosts(mockPosts);
@@ -135,11 +135,13 @@ export default function Blog() {
   className="overflow-hidden group transition-shadow duration-300 shadow-md hover:shadow-lg flex flex-col bg-white"
 >
   <Link href={createPageUrl(`BlogPost?slug=${post.slug}`)} className="block overflow-hidden">
-    <img
-      src={post.featured_image}
-      alt={post.title}
-      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-    />
+   <Image
+  src={post.featured_image}
+  alt={post.title}
+  width={800} // apne hisaab se set karo
+  height={500} // apne hisaab se set karo
+  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+/>
   </Link>
 
   <CardContent className="p-4 flex flex-col flex-grow">

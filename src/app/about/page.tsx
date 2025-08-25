@@ -23,6 +23,9 @@ const values = [
   { icon: Heart, title: "Customer Care", description: "We treat every customer like family, providing personalized service and support throughout your vehicle's lifetime." }
 ];
 
+import Image from "next/image";
+
+const MotionImage = motion(Image);
 export default function About() {
     const { ref, inView } = useInView({ triggerOnce: true });
 
@@ -75,96 +78,11 @@ const spin = {
               </p>
             </div>
         <motion.div
-  className="relative h-96 rounded-lg overflow-hidden flex items-center justify-center gap-0"
-  initial={{ background: "linear-gradient(to bottom, #111827, #1f2937)" }} // gray-900 → gray-800
-  animate={{  background: [
-      "linear-gradient(to bottom, #111827, #1f2937", // ~gray-800
-      "linear-gradient(to bottom, #111827, #1f2937", // ~gray-850
-      "linear-gradient(to bottom, #0f172a, #111827)"  // ~gray-900
-    ]}} // solid gray-900
-  transition={{ delay: 5, duration: 1.5, ease: "easeInOut",times: [0, 0.5, 1] }} // 2 sec wait, then 1 sec fade   
+  className="relative h-96 rounded-lg overflow-hidden flex items-center justify-center gap-0 bg-gray-900"
+   
         >
      <div className="flex justify-center items-center">
 
-  
-
-<motion.div className="relative mx-auto p-2 w-[450px] max-w-[3600px]"
-       {...blueglowAnimation}
-        transition={{ ...blueglowAnimation.transition, delay: 0.5}} // more delay
-        >
-      {/* keep the car’s aspect ratio (your image is ~1350x390) */}
-      <div className=" w-full" style={{ aspectRatio: "1450/390" }}>
-        {/* ---- ROTATING WHEELS UNDERLAY ---- */}
-        {/* Rear wheel */}
-        <motion.img
-          src="/frontwheel-removebg.png"
-          alt="Rear wheel"
-          className="absolute"
-          style={{
-            left: "11.8%",   // ⬅️ tune these % to match exactly
-            top: "47.4%",
-            transform: "translate(-50%, -50%)",
-            width: "14%",  // wheel diameter as % of container width
-            filter:
-              "drop-shadow(0 0 18px rgba(0,0,0,0.45)) drop-shadow(0 8px 24px rgba(0,0,0,0.35))",
-          }}
-          {...spin}
-          
-        />
-
-        {/* Front wheel */}
-        <motion.img
-          src="/frontwheel-removebg.png"
-          alt="Front wheel"
-          className="absolute"
-          style={{
-            left: "68.5%",   // ⬅️ tune these % to match exactly
-            top: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "14%",
-            filter:
-              "drop-shadow(0 0 18px rgba(0,0,0,0.45)) drop-shadow(0 8px 24px rgba(0,0,0,0.35))",
-          }}
-          {...spin}
-        />
-
-        {/* ---- CAR BODY OVERLAY (with holes where wheels are) ---- */}
-        <svg className="inset-0 w-full h-full" viewBox="0 0 3000 650" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            {/* White = visible, Black = hole */}
-          <mask id="carMask">
-  <rect width="180%" height="100%" fill="white" />
-    {/* <circle cx="200" cy="140" r="70" fill="black" /> {/* Rear tyre hole */}
-    {/* <circle cx="750" cy="140" r="70" fill="black" /> Front tyre hole */}
-  </mask>
-          </defs>
-
-          {/* Car image with mask applied */}
-          <image
-            href="/FerariBlueNowheels.png"
-            x="0"
-            y="0"
-            width="3000"   // pehle 1490 tha
-            height="650"   // pehle 420 tha
-            preserveAspectRatio="xMidYMid slice"
-            mask="url(#carMask)"
-            
-          />
-          
-        </svg>
-          {/* Bottom shadow */}
-  <div
-    className="absolute left-1/2 -translate-x-1/2 z-0"
-    style={{
-      bottom:"1%",
-      width: "130%", // shadow ka spread
-      height: "20px",
-      background: "radial-gradient(ellipse at center, rgba(0, 0, 0, 0.81) 38%, transparent 80%)",
-      filter: "blur(8px)",
-    }}
-  />
-      </div>
-    </motion.div>
   {/* Logo appears AFTER car animation */}
   {/* Logo appears after car animation */}
   <motion.img
@@ -177,7 +95,7 @@ const spin = {
     }}
     initial={{ opacity: 0, scale: 0 }}
     animate={{ opacity: 1, scale: 1 }}
-    transition={{ delay: 5, duration: 1.5, ease: "easeOut" }} // delay = car animation duration
+    transition={{ delay: 1, duration: 1, ease: "easeOut" }} // delay = car animation duration
   />
 </div>
      

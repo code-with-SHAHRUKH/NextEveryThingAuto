@@ -1,11 +1,4 @@
-import FeaturesBenefitsSection from "./components/FeaturesBenefits";
-import HeroBannerSection from "./components/HeroBanner";
-import StatsSection from "./components/StatsSection";
-import ValuePropLineSection from "./components/ValuePropLine";
-import Mowing from "./components/Mowing";
-import HowItWorksAndHelpSection from "./components/HowItWorksAndHelp";
-import EcosystemSection from "./components/EcosystemSection";
-import ReadyToOrderSection from "./components/ReadyToOrder";
+
 import HeroSection from "./components/HeroSection";
 import ServicesOverview from "./components/ServicesOverview";
 import GoogleReviews from "./components/GoogleReviews";

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { createPageUrl } from "@/utils/createPageUrl";
 import { Button } from "@/components/ui/button";
@@ -32,10 +33,10 @@ const services = [
   { icon: '/disc-brake.webp', title: "Brake Service", path: "BrakeService", description: "Ensuring your vehicle stops safely and reliably." },
   { icon: '/diagnostics.webp', title: "Diagnostics", path: "Diagnostics", description: "Pinpointing issues with check engine lights." },
   { icon: '/electric-system.webp', title: "Electrical Systems", path: "ElectricalSystems", description: "Fixing shorts, wiring, and battery issues." },
-  { icon: 'oil-change.webp', title: "Oil Changes", path: "OilChanges", description: "Essential maintenance for engine longevity." },
-  { icon: 'Tire-repairing.webp', title: "Wheel & Tire", path: "WheelTire", description: "Tire rotation, balancing, and replacement." },
-  { icon: 'gear-Transmition.webp', title: "Transmission", path: "Transmission", description: "Smooth gear shifting and performance." },
-  { icon: 'car-engine-diagnostic.webp', title: "NY State Inspection", path: "NYStateInspection", description: "Official vehicle safety and emissions testing." }
+  { icon: '/oil-change.webp', title: "Oil Changes", path: "OilChanges", description: "Essential maintenance for engine longevity." },
+  { icon: '/Tire-repairing.webp', title: "Wheel & Tire", path: "WheelTire", description: "Tire rotation, balancing, and replacement." },
+  { icon: '/gear-Transmition.webp', title: "Transmission", path: "Transmission", description: "Smooth gear shifting and performance." },
+  { icon: '/car-engine-diagnostic.webp', title: "NY State Inspection", path: "NYStateInspection", description: "Official vehicle safety and emissions testing." }
 ];
 
 
@@ -171,11 +172,15 @@ useEffect(() => {
       >
         {/* Icon */}
         <div className="mb-3">
-          <img
-            src={service.icon}
-            alt={service.title}
-            className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain"
-          />
+       <Image
+  src={service.icon}
+  alt={service.title}
+  width={80}
+  height={80}
+  sizes="(max-width: 640px) 48px, (max-width: 768px) 64px, 80px"
+  className="object-contain"
+/>
+
         </div>
 
         {/* Title */}

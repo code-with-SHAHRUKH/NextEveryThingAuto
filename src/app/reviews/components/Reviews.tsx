@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star, ExternalLink } from 'lucide-react';
 import { Tilt } from "react-tilt";
+import Image from "next/image";
 import { motion } from "framer-motion"
 import { fadeIn } from '@/utils/motion';
 const renderStars = (rating: any) => {
@@ -134,11 +135,13 @@ const LiveGoogleReviews = () => {
 
       {/* User Info Section (LEFT aligned, connected look) */}
       <div className="flex items-center space-x-3 ml-2 px-1">
-        <img
-          src={review?.customer_image || "/mypic.png"}
-          alt={review.customer_name}
-          className="w-12 h-12 rounded-full object-cover border border-gray-300 shadow-sm ring-2 ring-gray-100"
-        />
+        <Image
+  src={review?.customer_image || "/mypic.png"}
+  alt={review.customer_name}
+  width={48} // w-12 = 48px
+  height={48} // h-12 = 48px
+  className="rounded-full object-cover border border-gray-300 shadow-sm ring-2 ring-gray-100"
+/>
         <div className="flex flex-col text-left">
           <span className="text-lg font-semibold text-gray-800">
             {review.customer_name}

@@ -5,34 +5,36 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Play, ExternalLink, YoutubeIcon, Youtube, LucideYoutube } from 'lucide-react';
 import VideoModal from './VideoModal';
+import Image from "next/image";
+
 const videos = [
     {
         id: 1,
         title: "Customer Testimonial - Sarah's Experience",
         description: "Hear from Sarah about her experience with our brake service and how we saved her money.",
         youtubeId: "MvdLs6wmp-s",
-        thumbnail: "https://img.youtube.com/vi/MvdLs6wmp-s/maxresdefault.jpg"
+        thumbnail: "/maxresdefault.jpg"
     },
     {
         id: 2,
         title: "Inside Everything Auto - Shop Tour",
         description: "Take a virtual tour of our state-of-the-art facility and meet our certified technicians.",
         youtubeId: "bfDpZval4uQ",
-        thumbnail: "https://img.youtube.com/vi/bfDpZval4uQ/maxresdefault.jpg"
+        thumbnail: "/maxresdefault.jpg"
     },
     {
         id: 3,
         title: "Digital Vehicle Inspection Demo",
         description: "See how our digital inspections provide detailed photos and explanations of your vehicle's condition.",
         youtubeId: "MvdLs6wmp-s",
-        thumbnail: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=480&h=360&fit=crop"
+        thumbnail: "/maxresdefault.jpg"
     },
     {
         id: 4,
         title: "Engine Diagnostic Process",
         description: "Watch our expert technicians diagnose and solve complex engine problems using advanced tools.",
         youtubeId: "MvdLs6wmp-s",
-        thumbnail: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=480&h=360&fit=crop"
+        thumbnail: "/maxresdefault.jpg"
     },
     // {
     //     id: 5,
@@ -46,63 +48,63 @@ const videos = [
         title: "Why Choose Everything Auto",
         description: "Learn about our commitment to quality, transparency, and customer satisfaction.",
         youtubeId: "MvdLs6wmp-s",
-        thumbnail: "https://images.unsplash.com/photo-1486754735734-325b5831c3ad?w=480&h=360&fit=crop"
+        thumbnail: "/maxresdefault.jpg"
     },
     {
         id: 7,
         title: "Customer Testimonial - Sarah's Experience",
         description: "Hear from Sarah about her experience with our brake service and how we saved her money.",
         youtubeId: "MvdLs6wmp-s",
-        thumbnail: "https://img.youtube.com/vi/MvdLs6wmp-s/maxresdefault.jpg"
+        thumbnail: "/maxresdefault.jpg"
     },
     {
         id: 8,
         title: "Inside Everything Auto - Shop Tour",
         description: "Take a virtual tour of our state-of-the-art facility and meet our certified technicians.",
         youtubeId: "bfDpZval4uQ",
-        thumbnail: "https://img.youtube.com/vi/bfDpZval4uQ/maxresdefault.jpg"
+        thumbnail: "/maxresdefault.jpg"
     },
     {
         id: 9,
         title: "Digital Vehicle Inspection Demo",
         description: "See how our digital inspections provide detailed photos and explanations of your vehicle's condition.",
         youtubeId: "MvdLs6wmp-s",
-        thumbnail: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=480&h=360&fit=crop"
+        thumbnail: "/maxresdefault.jpg"
     },
     {
         id: 10,
         title: "Engine Diagnostic Process",
         description: "Watch our expert technicians diagnose and solve complex engine problems using advanced tools.",
         youtubeId: "MvdLs6wmp-s",
-        thumbnail: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=480&h=360&fit=crop"
+        thumbnail: "/maxresdefault.jpg"
     },
     {
         id: 11,
         title: "Customer Testimonial - Sarah's Experience",
         description: "Hear from Sarah about her experience with our brake service and how we saved her money.",
         youtubeId: "MvdLs6wmp-s",
-        thumbnail: "https://img.youtube.com/vi/MvdLs6wmp-s/maxresdefault.jpg"
+        thumbnail: "/maxresdefault.jpg"
     },
     {
         id: 12,
         title: "Inside Everything Auto - Shop Tour",
         description: "Take a virtual tour of our state-of-the-art facility and meet our certified technicians.",
         youtubeId: "bfDpZval4uQ",
-        thumbnail: "https://img.youtube.com/vi/bfDpZval4uQ/maxresdefault.jpg"
+        thumbnail: "/maxresdefault.jpg"
     },
     {
         id: 13,
         title: "Digital Vehicle Inspection Demo",
         description: "See how our digital inspections provide detailed photos and explanations of your vehicle's condition.",
         youtubeId: "MvdLs6wmp-s",
-        thumbnail: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=480&h=360&fit=crop"
+        thumbnail: "/maxresdefault.jpg"
     },
     {
         id: 14,
         title: "Engine Diagnostic Process",
         description: "Watch our expert technicians diagnose and solve complex engine problems using advanced tools.",
         youtubeId: "MvdLs6wmp-s",
-        thumbnail: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=480&h=360&fit=crop"
+        thumbnail: "/maxresdefault.jpg"
     },
 ];
 
@@ -159,11 +161,13 @@ export default function Videos() {
 >
   {/* Thumbnail Section */}
   <div className="relative group cursor-pointer overflow-hidden">
-    <img
-      src={video.thumbnail}
-      alt={video.title}
-      className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-500"
-    />
+   <Image
+  src={video.thumbnail}
+  alt={video.title}
+  width={400}   // apni requirement ke mutabiq rakhna
+  height={192}  // (16:9 aspect ratio ke liye 400x192 rakha)
+  className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-500 rounded-lg"
+/>
     {/* Overlay with Play Icon */}
     <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center 
                     opacity-0 group-hover:opacity-100 transition-opacity duration-300">
