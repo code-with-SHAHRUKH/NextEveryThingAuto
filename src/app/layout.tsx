@@ -1,5 +1,7 @@
 
 "use client";
+import Image from "next/image";
+
 import React, { useEffect } from "react";
 import  Link  from "next/link";
 import { usePathname } from 'next/navigation';
@@ -224,12 +226,13 @@ export default function Layout({
           <div className="flex items-center justify-between h-28">
             {/* Logo */}
             <Link href='/' className="flex-shrink-0 cursor-pointer">
-              <img
-                // src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/09d6b1a90_pngglowlogo1.png"
-                src="/EveryThingAutoLogo.png"
-                alt="Everything Auto - Expert Auto Repair in Franklin Square, NY"
-                className="header-logo"
-              />
+              <Image
+  src="/EveryThingAutoLogo.png"
+  alt="Everything Auto - Expert Auto Repair in Franklin Square, NY"
+  width={200}   // apni zarurat ke mutabiq width set karo
+  height={80}   // apni zarurat ke mutabiq height set karo
+  className="header-logo"
+/>
             </Link>
 
             {/* Desktop Navigation - Centered */}
@@ -370,11 +373,13 @@ export default function Layout({
             {/* About */}
             <div className="lg:col-span-1 flex flex-col items-center text-center">
               <Link href={createPageUrl("Home")} className="cursor-pointer mb-4">
-                <img
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/09d6b1a90_pngglowlogo1.png"
-                  alt="Everything Auto Logo"
-                  className="footer-logo"
-                />
+                <Image
+  src="/EveryThingAutoLogo.png"
+  alt="Everything Auto Logo"
+  width={180}   // apni zarurat ke hisaab se adjust karein
+  height={60}   // apni zarurat ke hisaab se adjust karein
+  className="footer-logo"
+/>
               </Link>
               <p className="text-gray-400 text-sm">
                 Franklin Square&apos;s trusted family-owned auto repair shop since 2008. We are committed to providing honest, high-quality service for all makes and models.
