@@ -11,6 +11,7 @@ export default function PreventativeMaintenance() {
             imageUrl="https://images.unsplash.com/photo-1553754592-a694d6932760?w=1200&h=600&fit=crop"
             serviceFAQ={<PreventativeMaintenanceFAQ />}
         >
+            <div className='min-h-[500px]'>
             <h2>Save Money with Routine Maintenance</h2>
             <p>
                 The easiest way to avoid expensive auto repairs is to keep up with your vehicle&apos;s preventative maintenance schedule. At Everything Auto, we help you follow your manufacturer&apos;s recommendations to keep your car running like new.
@@ -22,6 +23,7 @@ export default function PreventativeMaintenance() {
                 <li><strong>Timing Belt Replacement:</strong> A critical service to prevent catastrophic engine failure.</li>
                 <li><strong>Spark Plug Replacement:</strong> Essential for engine performance and fuel economy.</li>
             </ul>
+            </div>
         </ServicePageLayout>
     );
 }

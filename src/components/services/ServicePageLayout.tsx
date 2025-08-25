@@ -46,26 +46,26 @@ export default function ServicePageLayout({
             </section>
 
             <div className="max-w-7xl mx-auto px-4 section-padding">
-                <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
+                <div className="grid lg:grid-cols-3 gap-8 lg:gap-8">
                     {/* Main Content */}
-                    <div className="lg:col-span-2 bg-white p-6 sm:p-8 lg:p-12 rounded-lg shadow-sm border border-[var(--color-border)]">
+                    <div className="lg:col-span-2 bg-white p-6 sm:p-8 lg:p-8 lg:pt-16 rounded-lg shadow-md">
                         <article className="prose lg:prose-lg max-w-none text-[var(--color-text-light)] prose-h2:text-[var(--color-text)] prose-h3:text-[var(--color-text)] prose-strong:text-[var(--color-text)]">
                             {children}
 
-                            <div className="mt-12 lg:mt-16 p-6 lg:p-8 bg-gray-100 rounded-lg text-center border-t-4 border-blue-600 not-prose">
+                            <div className="mt-12 lg:mt-12 p-6 lg:p-8 bg-gradient-to-b from-white via-gray-100 to-white rounded-lg text-center shadow-sm border-t-4 border-blue-600 not-prose">
                                 <h3 className="text-xl lg:text-2xl font-bold mb-4 text-gray-800">Ready for Expert Service?</h3>
                                 <p className="text-base lg:text-lg text-gray-600 mb-6">
                                     Schedule your appointment online or give us a call. Our team is ready to provide the 5-star service your vehicle deserves.
                                 </p>
                                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
                                     <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                                        <Button size="lg" className="btn-primary w-full font-bold">
+                                        <Button size="lg" className="bg-gradient-to-b from-red-600 to-gray-100/10 w-full font-bold  transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
                                             <Calendar className="w-5 h-5 mr-2" />
                                             Book Your Appointment
                                         </Button>
                                     </a>
                                     <a href="tel:516-775-9724" className="w-full sm:w-auto">
-                                        <Button size="lg" className="btn-accent w-full font-bold">
+                                        <Button size="lg" className="bg-gradient-to-b from-blue-700 to-gray-100/10 w-full font-bold transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
                                             <Phone className="w-5 h-5 mr-2" />
                                             (516) 775-9724
                                         </Button>
@@ -78,29 +78,43 @@ export default function ServicePageLayout({
                     {/* Sidebar */}
                     <aside className="space-y-6 lg:space-y-8">
                         {/* CTA Card */}
-                        <Card className="bg-[var(--color-primary)] text-white">
+                        <Card 
+   
+          
+                        className="bg-blue-800 shadow-md text-white">
                             <CardHeader>
                                 <CardTitle className="text-xl lg:text-2xl text-white">Schedule Your Service</CardTitle>
                             </CardHeader>
                             <CardContent className="space-y-4">
-                                <p className="text-blue-100">Get expert {title.toLowerCase()} from our ASE-certified technicians.</p>
-                                <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer" className="block">
-                                    <Button size="lg" className="w-full btn-accent font-bold text-base lg:text-lg">
-                                        <Calendar className="w-5 h-5 mr-2" />
-                                        Book Appointment
-                                    </Button>
-                                </a>
-                                <a href="tel:516-775-9724" className="block">
-                                    <Button size="lg" variant="outline" className="w-full bg-transparent border-white text-white hover:bg-white hover:text-[var(--color-primary)] font-bold text-base lg:text-lg">
+                                <p className="text-blue-50">Get expert {title.toLowerCase()} from our ASE-certified technicians.</p>
+                                 <a href="tel:516-775-9724" className="block">
+                                    <Button 
+       style={{
+                        boxShadow:
+                          "inset 0 -2px 5px rgba(249, 195, 195, 0.65), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+                      }}
+                                    size="lg" className="w-full bg-gradient-to-b from-red-600 to-gray-100/10 py-6 font-semibold text-base lg:text-lg  transform transition-all duration-300 hover:scale-105 hover:shadow-xl ">
                                         <Phone className="w-5 h-5 mr-2" />
                                         Call Us Now
                                     </Button>
                                 </a>
+                                <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer" className="block">
+                                    <Button 
+                                                                                style={{
+        boxShadow:
+          "inset 0 -2px 5px rgba(138, 193, 252, 0.75), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
+      }}
+                                    size="lg" className="w-full bg-gradient-to-b from-blue-700 to-gray-100/10 py-6 font-semibold text-base lg:text-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl ">
+                                        <Calendar className="w-5 h-5 mr-2" />
+                                        Book Appointment
+                                    </Button>
+                                </a>
+                               
                             </CardContent>
                         </Card>
 
                         {/* Why Choose Us Card */}
-                        <Card className="bg-white border border-[var(--color-border)]">
+                        <Card className="bg-white shadow-md">
                             <CardHeader>
                                 <CardTitle className="text-xl lg:text-2xl text-[var(--color-text)]">Why Choose Us?</CardTitle>
                             </CardHeader>
@@ -130,7 +144,7 @@ export default function ServicePageLayout({
                         </Card>
                         
                         {/* Other Services */}
-                        <Card className="bg-white border border-[var(--color-border)]">
+                        <Card className="bg-white shadow-md">
                             <CardHeader>
                                 <CardTitle className="text-lg lg:text-xl">Other Services</CardTitle>
                             </CardHeader>

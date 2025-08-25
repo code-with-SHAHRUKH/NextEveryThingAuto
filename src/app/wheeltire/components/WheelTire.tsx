@@ -11,6 +11,7 @@ export default function WheelTire() {
             imageUrl="https://images.unsplash.com/photo-1599252538977-f133595f68a3?w=1200&h=600&fit=crop"
             serviceFAQ={<WheelTireFAQ />}
         >
+             <div className='min-h-[500px]'>
             <h2>Your One-Stop Shop for Tires and Wheels</h2>
             <p>
                 Your tires are the only part of your car that touches the road. Proper tire maintenance is critical for safety, performance, and fuel efficiency. We offer a full range of tire services to keep you rolling smoothly.
@@ -22,6 +23,7 @@ export default function WheelTire() {
                 <li><strong>Wheel Alignment:</strong> We perform precise two-wheel and four-wheel alignments to ensure your car drives straight and prevent premature tire wear.</li>
                 <li><strong>Tire Repair:</strong> We can often repair punctures, saving you the cost of a new tire.</li>
             </ul>
+            </div>
         </ServicePageLayout>
     );
 }

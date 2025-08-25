@@ -63,7 +63,7 @@ export default function FAQSection({ showSearch = false, title = "Frequently Ask
     };
 
     return (
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-white">
             <div className="max-w-4xl mx-auto px-4">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl lg:text-4xl font-bold text-[var(--color-text)] mb-4">
@@ -96,26 +96,26 @@ export default function FAQSection({ showSearch = false, title = "Frequently Ask
 
                 <div className="space-y-4">
                     {filteredFAQs.length > 0 ? filteredFAQs.map((faq, index) => (
-                        <Card key={index} className="border border-gray-200 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                        <Card key={index} className="border border-gray-100 hover:shadow-md transition-all duration-300 overflow-hidden">
                             <CardContent className="p-0">
                                 <button
                                     onClick={() => toggleFAQ(index)}
-                                    className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200 group"
+                                    className="w-full p-6 text-left flex items-center justify-between bg-gradient-to-b from-white to-gray-50 hover:bg-gray-50 transition-colors duration-200 group"
                                 >
-                                    <h3 className="text-lg font-semibold text-[var(--color-text)] pr-4 group-hover:text-blue-600 transition-colors">
+                                    <h3 className="text-lg font-semibold text-[var(--color-text)] pr-4 transition-colors">
                                         {faq.question}
                                     </h3>
                                     <div className="flex-shrink-0">
                                         {openIndex === index ? (
                                             <ChevronUp className="w-5 h-5 text-blue-600 transition-transform duration-200" />
                                         ) : (
-                                            <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors duration-200" />
+                                            <ChevronDown className="w-5 h-5 text-blue-600 transition-colors duration-200" />
                                         )}
                                     </div>
                                 </button>
                                 {openIndex === index && (
-                                    <div className="px-6 pb-6 animate-fadeIn">
-                                        <div className="border-t border-gray-100 pt-4">
+                                    <div className="bg-gray-50 px-6 pb-6 animate-fadeIn">
+                                        <div className="border-gray-100 pt-4">
                                             <p className="text-[var(--color-text-light)] leading-relaxed">
                                                 {faq.answer}
                                             </p>

@@ -38,7 +38,7 @@ export default function EngineRepairFAQ() {
     };
 
     return (
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
             <div className="max-w-4xl mx-auto px-4">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl lg:text-4xl font-bold text-[var(--color-text)] mb-4">
@@ -51,11 +51,11 @@ export default function EngineRepairFAQ() {
                 
                 <div className="space-y-4">
                     {engineRepairFAQs.map((faq, index) => (
-                        <Card key={index} className="border border-gray-200 hover:shadow-md transition-shadow duration-200">
+                        <Card key={index} className="border border-gray-100 hover:shadow-md transition-shadow duration-200">
                             <CardContent className="p-0">
                                 <button
                                     onClick={() => toggleFAQ(index)}
-                                    className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                                    className="w-full p-6 text-left flex items-center justify-between rounded-md transition-colors duration-200"
                                 >
                                     <h3 className="text-lg font-semibold text-[var(--color-text)] pr-4">
                                         {faq.question}

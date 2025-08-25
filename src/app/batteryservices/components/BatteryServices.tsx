@@ -11,6 +11,7 @@ export default function BatteryServices() {
             imageUrl="https://images.unsplash.com/photo-1620027582885-78c6686a6352?w=1200&h=600&fit=crop"
             serviceFAQ={<BatteryServicesFAQ />}
         >
+            <div className='min-h-[500px]'>
             <h2>Reliable Car Battery Replacement</h2>
             <p>
                 Your car&apos;s battery is the starting point for every journey. If you&apos;re having trouble starting your car, let our experts test your battery and entire charging system to find the problem.
@@ -21,6 +22,7 @@ export default function BatteryServices() {
                 <li><strong>Battery Replacement:</strong> We stock high-quality batteries and will install the correct one for your vehicle.</li>
                 <li><strong>Alternator & Starter Testing:</strong> We can diagnose issues with your alternator (which charges the battery) and your starter motor.</li>
             </ul>
+            </div>
         </ServicePageLayout>
     );
 }

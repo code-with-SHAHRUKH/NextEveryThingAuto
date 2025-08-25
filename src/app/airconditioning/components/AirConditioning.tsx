@@ -11,6 +11,7 @@ export default function AirConditioning() {
             imageUrl="https://images.unsplash.com/photo-1605301149635-f938a9d1e4e0?w=1200&h=600&fit=crop"
             serviceFAQ={<AirConditioningFAQ />}
         >
+             <div className='min-h-[500px]'>
             <h2>Car A/C Repair in Long Island</h2>
             <p>
                 Don&apos;t suffer through a hot New York summer with a broken air conditioner. The team at Everything Auto can quickly diagnose and repair any issue with your vehicle&apos;s A/C system.
@@ -22,6 +23,7 @@ export default function AirConditioning() {
                 <li><strong>Leak Detection:</strong> Using specialized UV dye and electronic sniffers, we can find and repair refrigerant leaks.</li>
                 <li><strong>Component Replacement:</strong> We can replace faulty compressors, condensers, evaporators, and other A/C components.</li>
             </ul>
+            </div>
         </ServicePageLayout>
     );
 }

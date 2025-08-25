@@ -11,7 +11,8 @@ export default function OilChanges() {
             imageUrl="https://images.unsplash.com/photo-1606214959239-181a4473c544?w=1200&h=600&fit=crop"
             serviceFAQ={<OilChangesFAQ />}
         >
-            <h2>Professional Oil Change Service in Franklin Square</h2>
+            <div className='min-h-[500px]'>
+ <h2>Professional Oil Change Service in Franklin Square</h2>
             <p>
                 Regular oil changes are the single most important maintenance you can perform to protect your engine and ensure a long vehicle life. At Everything Auto, we make it fast, easy, and affordable to get a high-quality oil change.
             </p>
@@ -24,6 +25,8 @@ export default function OilChanges() {
                 <li>Replacing the oil filter with a new, high-quality filter.</li>
                 <li>A complimentary Digital Vehicle Inspection, where we check your tires, brakes, fluids, belts, and hoses to keep you informed about your car&apos;s health.</li>
             </ul>
+            </div>
+           
         </ServicePageLayout>
     );
 }
