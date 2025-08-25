@@ -64,7 +64,7 @@ const spin = {
       {/* Hero Section */}
       <section className="section-padding bg-gray-800 text-white">
         <div className="max-w-screen-xl mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg font-semibold text-[var(--color-primary)] uppercase tracking-wider">About Us</p>
               <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mt-2 mb-6">
@@ -286,8 +286,7 @@ const spin = {
           <p className="text-lg mx-auto mb-8 max-w-2xl text-gray-200">
             Join the thousands of satisfied customers who trust Everything Auto for all their vehicle needs.
           </p>
-         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full">
-  {/* CALL NOW Button */}
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full">
   <a href="tel:516-775-9724" className="w-full sm:w-auto">
     <Button
       style={{
@@ -295,45 +294,29 @@ const spin = {
           "inset 0 -2px 5px rgba(249, 195, 195, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
       }}
       size="lg"
-      className="bg-gradient-to-b from-red-600 to-gray-100/10 
-                 rounded-lg font-semibold 
-                 text-base sm:text-lg lg:text-xl 
-                 px-4 sm:px-6 lg:px-8 
-                 py-3 sm:py-4 lg:py-6 
-                 w-full sm:w-auto 
-                 flex items-center justify-center 
-                 transform transition-all duration-300 
-                 hover:scale-105 hover:shadow-xl"
+      className="bg-gradient-to-b from-red-600 to-gray-100/10 rounded-lg font-semibold 
+                 text-lg sm:text-xl px-6 sm:px-8 py-4 sm:py-6 
+                 w-full flex items-center justify-center 
+                 transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
     >
-      <Phone className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 mr-2" />
-      CALL NOW
+      <Phone className="w-5 h-5 mr-2" />
+      CALL NOW: (516) 775-9724
     </Button>
   </a>
 
-  {/* Book Appointment Button */}
-  <a
-    href="https://myalp.io/nqc45n"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="w-full sm:w-auto"
-  >
+  <a href="https://myalp.io/nqc45n" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
     <Button
       style={{
         boxShadow:
           "inset 0 -2px 5px rgba(138, 193, 252, 0.85), inset 0 2px 5px rgba(19, 19, 19, 0.4), 0 2px 5px rgba(0, 0, 0, 0.11)",
       }}
       size="lg"
-      className="bg-gradient-to-b from-blue-700 to-gray-100/10 
-                 rounded-lg font-semibold 
-                 text-base sm:text-lg lg:text-xl 
-                 px-4 sm:px-6 lg:px-8 
-                 py-3 sm:py-4 lg:py-6 
-                 w-full sm:w-auto 
-                 flex items-center justify-center 
-                 transform transition-all duration-300 
-                 hover:scale-105 hover:shadow-xl"
+      className="bg-gradient-to-b from-blue-700 to-gray-100/10 rounded-lg font-semibold 
+                 text-lg sm:text-xl px-6 sm:px-8 py-4 sm:py-6 
+                 w-full sm:w-auto flex items-center justify-center
+                 transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
     >
-      <Calendar className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 mr-2" />
+      <Calendar className="w-5 h-5 mr-2" />
       Book Appointment
     </Button>
   </a>
